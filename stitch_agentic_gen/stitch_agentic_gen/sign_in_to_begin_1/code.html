@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agentic AI App Generator - Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#000000",
+            "background-light": "#FFFFFF",
+            "background-dark": "#121212",
+            "text-light": "#111827",
+            "text-dark": "#F9FAFB",
+            "secondary-text-light": "#6B7280",
+            "secondary-text-dark": "#9CA3AF",
+            "border-light": "#E5E7EB",
+            "border-dark": "#374151",
+            "card-light": "#F9FAFB",
+            "card-dark": "#1F2937",
+            "accent-blue": "#3B82F6",
+            "accent-green": "#10B981"
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem", // 8px
+            lg: "0.75rem", // 12px
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark antialiased">
+<div class="flex flex-col min-h-screen">
+<header class="p-4 sm:p-6 border-b border-border-light dark:border-border-dark sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm z-10">
+<div class="flex justify-between items-center">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-2xl">
+          account_circle
+        </span>
+<span class="font-medium">user@email.com</span>
+</div>
+<div class="flex items-center space-x-2">
+<button aria-label="Toggle theme" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">
+            light_mode
+          </span>
+</button>
+<button aria-label="Settings" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">
+            settings
+          </span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow p-4 sm:p-6 space-y-8">
+<section class="text-center">
+<h1 class="text-3xl font-bold tracking-tight">Welcome Back</h1>
+<p class="text-secondary-text-light dark:text-secondary-text-dark mt-1">Ready to build your next big idea?</p>
+</section>
+<section>
+<button class="w-full bg-primary text-white font-semibold py-4 px-6 rounded-lg shadow-sm hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark transition-opacity flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Start New Project</span>
+</button>
+</section>
+<section class="p-4 bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex justify-between items-center mb-3">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Current Plan: Pro</h3>
+<a class="text-sm font-medium text-accent-blue hover:underline" href="#">Upgrade</a>
+</div>
+<div>
+<p class="text-sm text-secondary-text-light dark:text-secondary-text-dark mb-1">App Generations: 7 / 10 used</p>
+<div class="w-full bg-border-light dark:bg-border-dark rounded-full h-2">
+<div class="bg-accent-blue h-2 rounded-full" style="width: 70%"></div>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-xl font-bold mb-4">Recent Projects</h2>
+<div class="space-y-3">
+<div class="flex items-center p-4 bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark">
+<div class="p-3 bg-accent-blue/10 rounded-lg mr-4">
+<span class="material-symbols-outlined text-accent-blue">store</span>
+</div>
+<div class="flex-grow">
+<p class="font-semibold text-text-light dark:text-text-dark">E-commerce Platform</p>
+<p class="text-sm text-secondary-text-light dark:text-secondary-text-dark">Last updated: 2 hours ago</p>
+</div>
+<span class="material-symbols-outlined text-secondary-text-light dark:text-secondary-text-dark">chevron_right</span>
+</div>
+<div class="flex items-center p-4 bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark">
+<div class="p-3 bg-accent-green/10 rounded-lg mr-4">
+<span class="material-symbols-outlined text-accent-green">task_alt</span>
+</div>
+<div class="flex-grow">
+<p class="font-semibold text-text-light dark:text-text-dark">Task Management App</p>
+<p class="text-sm text-secondary-text-light dark:text-secondary-text-dark">Last updated: 1 day ago</p>
+</div>
+<span class="material-symbols-outlined text-secondary-text-light dark:text-secondary-text-dark">chevron_right</span>
+</div>
+<div class="flex items-center p-4 bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark">
+<div class="p-3 bg-gray-500/10 rounded-lg mr-4">
+<span class="material-symbols-outlined text-secondary-text-light dark:text-secondary-text-dark">forum</span>
+</div>
+<div class="flex-grow">
+<p class="font-semibold text-text-light dark:text-text-dark">Social Media Scheduler</p>
+<p class="text-sm text-secondary-text-light dark:text-secondary-text-dark">Last updated: 3 days ago</p>
+</div>
+<span class="material-symbols-outlined text-secondary-text-light dark:text-secondary-text-dark">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+
+</body></html>

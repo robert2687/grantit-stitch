@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Architect | Proposal Studio</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary-container": "#002113",
+                        "tertiary-fixed": "#6ffbbe",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8fa",
+                        "inverse-on-surface": "#f3f0f2",
+                        "tertiary": "#000000",
+                        "on-surface": "#1b1b1d",
+                        "secondary": "#0058be",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-container-low": "#f6f3f5",
+                        "surface-container-high": "#eae7e9",
+                        "on-secondary-fixed": "#001a42",
+                        "on-primary-container": "#7c839b",
+                        "primary": "#000000",
+                        "on-secondary-fixed-variant": "#004395",
+                        "surface": "#fcf8fa",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fcf8fa",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "inverse-surface": "#303032",
+                        "secondary-fixed": "#d8e2ff",
+                        "secondary-container": "#2170e4",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-container": "#009668",
+                        "on-primary-fixed": "#131b2e",
+                        "on-primary": "#ffffff",
+                        "outline": "#76777d",
+                        "on-surface-variant": "#45464d",
+                        "surface-container": "#f0edef",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcd9db",
+                        "primary-container": "#131b2e",
+                        "surface-tint": "#565e74",
+                        "on-tertiary-fixed": "#002113",
+                        "primary-fixed": "#dae2fd",
+                        "surface-variant": "#e4e2e4",
+                        "on-secondary-container": "#fefcff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container-highest": "#e4e2e4",
+                        "on-error": "#ffffff",
+                        "on-background": "#1b1b1d",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "outline-variant": "#c6c6cd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .zebra-striping div:nth-child(even) {
+            background-color: #f6f3f5;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface overflow-hidden">
+<!-- NavigationDrawer (JSON Component) -->
+<aside class="fixed left-0 top-0 h-full z-40 h-screen w-64 bg-[#f6f3f5] dark:bg-slate-900 font-['Manrope'] font-bold tracking-tight transition-all duration-200 ease-in-out">
+<div class="flex flex-col h-full">
+<div class="px-6 py-8">
+<span class="text-xl font-bold text-[#131b2e] dark:text-white">Sovereign Architect</span>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<!-- Dashboard -->
+<a class="flex items-center px-3 py-3 text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800 rounded-lg group transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<!-- Search -->
+<a class="flex items-center px-3 py-3 text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800 rounded-lg group transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="search">search</span>
+<span class="text-sm">Search</span>
+</a>
+<!-- Evaluation -->
+<a class="flex items-center px-3 py-3 text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800 rounded-lg group transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="rate_review">rate_review</span>
+<span class="text-sm">Evaluation</span>
+</a>
+<!-- Proposals (Active) -->
+<a class="flex items-center px-3 py-3 bg-[#e4e2e4] dark:bg-slate-800 text-[#131b2e] dark:text-white font-semibold rounded-lg group transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="description">description</span>
+<span class="text-sm">Proposals</span>
+</a>
+<!-- Admin -->
+<a class="flex items-center px-3 py-3 text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800 rounded-lg group transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="text-sm">Admin</span>
+</a>
+</nav>
+<div class="p-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<img alt="User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="Close up portrait of a professional man in a tailored dark suit with neutral background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbdpr8tQUGzBBRY7_5wqLJUA3Jat1tMu85HvkjKE8EdvJ1xKA7kmv51UG-GF9DroNV5ZRNxVqnEzklQS_vDl-03hAJfhd4MjQl9WMsvtq-a6GahkRv2dbYXGLj6uq6tAHTt8FVMcrYOKTWNzfh5rbVd0ud5AsrgzW9tkwY2unF48JrjL6iBTLnBX7D2lQz8MMipf0S-KGzOqkmI5twJRiu0qVY_zAC1thCzasaujD-PLLMJXe7Lh1lIyMR0_v7Th72QdcyzmyiINM"/>
+<div>
+<p class="text-xs font-bold text-on-primary-fixed">ELIAS VANCE</p>
+<p class="text-[10px] text-on-primary-fixed-variant">Chief Strategist</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen flex flex-col relative">
+<!-- TopAppBar (JSON Component Mapping) -->
+<header class="sticky top-0 w-full z-30 flex items-center justify-between px-8 h-16 bg-[#fcf8fa] backdrop-blur-md bg-opacity-80 font-['Manrope'] font-semibold text-lg text-[#131b2e]">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-lg font-black tracking-tight">Grant Explorer <span class="mx-2 text-outline-variant/40">|</span> <span class="font-medium text-on-primary-fixed-variant text-base">Proposal Studio</span></h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center bg-surface-container-low px-4 py-1.5 rounded-full border border-outline-variant/10">
+<span class="text-xs font-label uppercase tracking-widest text-on-primary-fixed-variant mr-3">Draft Status:</span>
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold rounded-full">IN REVIEW</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-primary-fixed-variant" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 bg-primary-container rounded-full flex items-center justify-center text-on-primary text-xs font-bold">EV</div>
+</div>
+</div>
+</header>
+<!-- Studio Workspace Grid -->
+<div class="flex-1 grid grid-cols-12 overflow-hidden h-[calc(100vh-64px)]">
+<!-- Left Sidebar: Progress & Navigation -->
+<section class="col-span-3 bg-surface-container-low border-r-0 p-8 overflow-y-auto flex flex-col gap-8">
+<div>
+<div class="flex justify-between items-end mb-4">
+<h3 class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold">Section Progress</h3>
+<span class="text-2xl font-headline font-extrabold text-primary-container">64%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full transition-all duration-1000" style="width: 64%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<h3 class="text-[10px] font-label uppercase tracking-[0.15em] text-outline mb-4">Proposal Sections</h3>
+<button class="w-full text-left p-4 rounded-lg bg-surface-container-highest border-l-4 border-primary-container flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="settings_input_component">settings_input_component</span>
+<span class="text-sm font-semibold text-primary-container">Technical Methodology</span>
+</div>
+<span class="material-symbols-outlined text-xs text-primary-container" data-icon="edit">edit</span>
+</button>
+<button class="w-full text-left p-4 rounded-lg hover:bg-surface-container-high transition-colors flex items-center justify-between group">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined opacity-60" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm font-medium">Timeline &amp; Execution</span>
+</div>
+<span class="material-symbols-outlined text-xs text-on-tertiary-container" data-icon="check_circle">check_circle</span>
+</button>
+<button class="w-full text-left p-4 rounded-lg hover:bg-surface-container-high transition-colors flex items-center justify-between group">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined opacity-60" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Budget Justification</span>
+</div>
+<span class="material-symbols-outlined text-xs text-on-tertiary-container" data-icon="check_circle">check_circle</span>
+</button>
+<button class="w-full text-left p-4 rounded-lg hover:bg-surface-container-high transition-colors flex items-center justify-between group">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined opacity-60" data-icon="groups">groups</span>
+<span class="text-sm font-medium">Team &amp; Governance</span>
+</div>
+<span class="text-[10px] font-bold text-outline">DRAFT</span>
+</button>
+</div>
+<div class="mt-auto p-4 bg-tertiary-container/5 rounded-xl border border-tertiary-container/5">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm" data-icon="bolt">bolt</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-tertiary-container">Architect Intelligence</span>
+</div>
+<p class="text-xs leading-relaxed text-on-primary-fixed-variant">AI suggestions are calibrated to the <span class="font-bold">Global Infrastructure Fund 2024</span> criteria.</p>
+</div>
+</section>
+<!-- Center: Editor -->
+<section class="col-span-6 bg-surface-container-lowest p-12 overflow-y-auto flex flex-col">
+<div class="max-w-3xl mx-auto w-full">
+<div class="mb-12">
+<h2 class="text-4xl font-headline font-extrabold text-on-primary-fixed tracking-tight mb-2">Technical Methodology</h2>
+<p class="text-on-primary-fixed-variant font-medium">Define the core architectural and systemic approach for the deployment phase.</p>
+</div>
+<div class="prose prose-slate max-w-none">
+<h3 class="text-lg font-bold text-on-surface mb-4">1.1 System Architecture</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                            The proposed solution utilizes a decentralized mesh topology designed for high-availability in low-latency environments. By implementing a zero-trust security layer at the hardware abstraction level, the architecture ensures that all grant metadata remains immutable across all regional nodes.
+                        </p>
+<p class="text-on-surface-variant leading-relaxed mb-6 bg-secondary-fixed/20 border-l-4 border-secondary p-4 rounded-r-lg">
+                            We will utilize the Sovereign-6 protocol for cross-border reconciliation. This protocol has been benchmarked to provide 99.999% uptime during peak transactional periods in the pilot phase. The integration of neural-net forecasting allows for predictive maintenance of the physical hardware nodes, reducing operational overhead by an estimated 22%.
+                        </p>
+<h3 class="text-lg font-bold text-on-surface mb-4">1.2 Deployment Strategy</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                            Deployment will occur in three distinct phases: Baseline Integration, Scale Validation, and Global Synchronization. During Phase 1, we focus on establishing the primary data pipelines...
+                        </p>
+<div class="h-24 w-full bg-surface-container-low rounded-lg animate-pulse mb-6 flex items-center justify-center">
+<span class="text-xs text-outline font-medium">Continue writing...</span>
+</div>
+</div>
+</div>
+<!-- Formatting Floating Bar -->
+<div class="sticky bottom-8 mx-auto flex items-center gap-2 p-2 bg-primary-container text-on-primary rounded-full shadow-2xl backdrop-blur-xl bg-opacity-95 border border-white/10">
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-sm" data-icon="format_bold">format_bold</span></button>
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-sm" data-icon="format_italic">format_italic</span></button>
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-sm" data-icon="format_list_bulleted">format_list_bulleted</span></button>
+<div class="w-px h-4 bg-white/20 mx-1"></div>
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-sm" data-icon="link">link</span></button>
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-sm" data-icon="image">image</span></button>
+<div class="w-px h-4 bg-white/20 mx-1"></div>
+<button class="px-4 py-1.5 bg-tertiary-fixed text-tertiary-container rounded-full text-[10px] font-black uppercase tracking-widest">Generate with AI</button>
+</div>
+</section>
+<!-- Right Sidebar: AI Suggestions -->
+<section class="col-span-3 bg-surface p-8 overflow-y-auto border-l border-outline-variant/10">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold">Improvement Suggestions</h3>
+<span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded-full">3 NEW</span>
+</div>
+<div class="space-y-6">
+<!-- Suggestion 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/5 shadow-sm">
+<div class="flex items-start gap-3 mb-3">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="lightbulb">lightbulb</span>
+<div>
+<h4 class="text-sm font-bold text-on-primary-fixed">Clarify Scalability</h4>
+<p class="text-xs text-on-primary-fixed-variant mt-1">The methodology section lacks specific metrics regarding the "Global Synchronization" phase.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg text-[11px] italic text-on-surface-variant leading-relaxed mb-4">
+                            "Suggest adding: 'The system is architected to handle up to 1.2M concurrent requests across 48 regional clusters...'"
+                        </div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-primary-container text-on-primary text-[10px] font-bold rounded-lg uppercase tracking-wider">Apply Fix</button>
+<button class="px-3 py-2 border border-outline-variant text-outline text-[10px] font-bold rounded-lg uppercase">Dismiss</button>
+</div>
+</div>
+<!-- Suggestion 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/5 shadow-sm">
+<div class="flex items-start gap-3 mb-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-lg" data-icon="auto_fix_high">auto_fix_high</span>
+<div>
+<h4 class="text-sm font-bold text-on-primary-fixed">Tone Adjustment</h4>
+<p class="text-xs text-on-primary-fixed-variant mt-1">Change "utilize" to "leverage" for a more authoritative architectural tone.</p>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-high text-on-primary-fixed text-[10px] font-bold rounded-lg uppercase tracking-wider">Rewrite Section</button>
+</div>
+<!-- Reference Content Card -->
+<div class="bg-primary-container p-6 rounded-2xl relative overflow-hidden mt-8 group">
+<div class="relative z-10">
+<h4 class="text-white text-sm font-bold mb-2">Grant Requirements</h4>
+<p class="text-white/70 text-[11px] leading-relaxed mb-4">Section 4.b requires "Explicit verification of data sovereignty protocols."</p>
+<a class="inline-flex items-center text-white text-[10px] font-bold uppercase tracking-widest gap-2 hover:gap-3 transition-all" href="#">
+                                View Full RFP
+                                <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Abstract Graphic -->
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-colors"></div>
+</div>
+</div>
+<!-- Footer Stats -->
+<div class="mt-12 pt-8 border-t border-outline-variant/10">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] font-bold text-outline uppercase mb-1">Word Count</p>
+<p class="text-lg font-headline font-bold text-on-primary-fixed">842 / 1200</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline uppercase mb-1">Time Spent</p>
+<p class="text-lg font-headline font-bold text-on-primary-fixed">4.2 hrs</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FAB: Contextual Suppression (Not on Details/Writing screens as per JSON logic, but included for high-end UI feel if desired) -->
+<!-- Suppressed for focused journey as per mandate. -->
+</body></html>

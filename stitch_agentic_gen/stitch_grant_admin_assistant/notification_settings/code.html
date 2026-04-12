@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Settings - RMD26</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#f0edef",
+                    "secondary": "#0058be",
+                    "on-secondary-container": "#fefcff",
+                    "outline-variant": "#c6c6cd",
+                    "on-surface": "#1b1b1d",
+                    "tertiary": "#000000",
+                    "surface-tint": "#565e74",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e4e2e4",
+                    "on-primary-fixed": "#131b2e",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#002113",
+                    "tertiary-fixed": "#6ffbbe",
+                    "surface": "#fcf8fa",
+                    "secondary-fixed": "#d8e2ff",
+                    "inverse-on-surface": "#f3f0f2",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#000000",
+                    "on-secondary-fixed-variant": "#004395",
+                    "on-surface-variant": "#45464d",
+                    "on-tertiary-container": "#009668",
+                    "surface-container-low": "#f6f3f5",
+                    "surface-variant": "#e4e2e4",
+                    "on-secondary-fixed": "#001a42",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-background": "#1b1b1d",
+                    "inverse-primary": "#bec6e0",
+                    "secondary-container": "#2170e4",
+                    "inverse-surface": "#303032",
+                    "primary-fixed-dim": "#bec6e0",
+                    "primary-container": "#131b2e",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-dim": "#dcd9db",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "surface-container-high": "#eae7e9",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#002113",
+                    "primary-fixed": "#dae2fd",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#fcf8fa",
+                    "background": "#fcf8fa",
+                    "error": "#ba1a1a",
+                    "outline": "#76777d",
+                    "on-primary-container": "#7c839b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #fcf8fa; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-[#fcf8fa] dark:bg-slate-950">
+<div class="flex items-center h-16 px-6 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform text-[#131b2e] dark:text-slate-100">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Manrope'] font-bold text-lg tracking-tight text-[#131b2e] dark:text-slate-100">Notification Settings</h1>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<!-- Hero Section / Editorial Intro -->
+<section class="mb-12">
+<h2 class="text-on-primary-fixed font-headline font-extrabold text-[2.5rem] leading-tight tracking-tighter mb-2">Communication Control</h2>
+<p class="text-on-primary-fixed-variant font-body text-md max-w-2xl">Configure how the Sovereign Architect intelligence system interacts with your mission-critical workflows.</p>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Delivery Methods (Bento Style Sidebar-esque) -->
+<div class="md:col-span-4 space-y-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_40px_rgba(19,27,46,0.06)] border border-outline-variant/10">
+<h3 class="font-label text-[0.6875rem] font-bold uppercase tracking-widest text-on-primary-fixed-variant mb-6">Delivery Channels</h3>
+<div class="space-y-6">
+<!-- Push -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="notifications_active">notifications_active</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm text-on-primary-fixed">Push Notifications</p>
+<p class="font-body text-xs text-on-surface-variant">Real-time mobile alerts</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Email -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm text-on-primary-fixed">Email Digests</p>
+<p class="font-body text-xs text-on-surface-variant">Daily mission summaries</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- In-app -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="dashboard_customize">dashboard_customize</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm text-on-primary-fixed">In-app Activity</p>
+<p class="font-body text-xs text-on-surface-variant">Persistent dashboard logs</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" disabled="" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container opacity-50"></div>
+</label>
+</div>
+</div>
+</div>
+<div class="bg-primary-container p-6 rounded-xl text-white relative overflow-hidden">
+<div class="relative z-10">
+<p class="font-headline font-bold text-lg mb-2">Priority Mode</p>
+<p class="font-body text-xs opacity-70 mb-4">Only high-risk flags and deadline alerts will bypass silence.</p>
+<button class="bg-white text-primary-container px-4 py-2 rounded font-bold text-xs hover:bg-surface-container-highest transition-colors">Configure Exceptions</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[100px]" data-icon="security">security</span>
+</div>
+</div>
+</div>
+<!-- Agent Specific Settings -->
+<div class="md:col-span-8 space-y-6">
+<!-- Grant Search -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(19,27,46,0.06)]">
+<div class="bg-surface-container-low px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="search_insights">search_insights</span>
+<h3 class="font-headline font-bold text-on-primary-fixed">Grant Search Agent</h3>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-label text-[10px] font-bold uppercase tracking-wider">Active</span>
+</div>
+<div class="divide-y divide-surface-container">
+<div class="px-6 py-5 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div>
+<p class="font-headline font-semibold text-on-surface">New Calls</p>
+<p class="font-body text-sm text-on-surface-variant">Alert when a matching opportunity is detected.</p>
+</div>
+<input checked="" class="h-5 w-5 rounded border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</div>
+<div class="px-6 py-5 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div>
+<p class="font-headline font-semibold text-on-surface">Strategic Alerts</p>
+<p class="font-body text-sm text-on-surface-variant">Policy changes affecting high-match grants.</p>
+</div>
+<input checked="" class="h-5 w-5 rounded border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</div>
+</div>
+</div>
+<!-- Evaluation & Writing -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_12px_40px_rgba(19,27,46,0.06)] flex flex-col">
+<div class="p-6 border-b border-surface-container">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="analytics">analytics</span>
+<h3 class="font-headline font-bold text-on-primary-fixed">Evaluation</h3>
+</div>
+<div class="space-y-4">
+<label class="flex items-center justify-between group cursor-pointer">
+<span class="font-body text-sm text-on-surface group-hover:text-primary transition-colors">Score Updates</span>
+<input checked="" class="h-4 w-4 rounded border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between group cursor-pointer">
+<span class="font-body text-sm text-on-surface group-hover:text-primary transition-colors">Risk Flags</span>
+<input checked="" class="h-4 w-4 rounded border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_12px_40px_rgba(19,27,46,0.06)] flex flex-col">
+<div class="p-6 border-b border-surface-container">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="edit_note">edit_note</span>
+<h3 class="font-headline font-bold text-on-primary-fixed">Writing Studio</h3>
+</div>
+<div class="space-y-4">
+<label class="flex items-center justify-between group cursor-pointer">
+<span class="font-body text-sm text-on-surface group-hover:text-primary transition-colors">Proposal Progress</span>
+<input checked="" class="h-4 w-4 rounded border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between group cursor-pointer">
+<span class="font-body text-sm text-on-surface group-hover:text-primary transition-colors">AI Suggestions</span>
+<input class="h-4 w-4 rounded border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Compliance -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(19,27,46,0.06)]">
+<div class="bg-[#ffdad6]/20 px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-error-container" data-icon="gavel">gavel</span>
+<h3 class="font-headline font-bold text-on-primary-fixed">Compliance Agent</h3>
+</div>
+<span class="px-3 py-1 rounded-full bg-error-container text-on-error-container font-label text-[10px] font-bold uppercase tracking-wider">Critical</span>
+</div>
+<div class="divide-y divide-surface-container">
+<div class="px-6 py-5 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div>
+<p class="font-headline font-semibold text-on-surface">Deadlines</p>
+<p class="font-body text-sm text-on-surface-variant">Upcoming submission dates and reporting windows.</p>
+</div>
+<input checked="" class="h-5 w-5 rounded border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</div>
+<div class="px-6 py-5 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div>
+<p class="font-headline font-semibold text-on-surface">Partner Updates</p>
+<p class="font-body text-sm text-on-surface-variant">Changes in consortium status or partner data.</p>
+</div>
+<input checked="" class="h-5 w-5 rounded border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-[#c6c6cd]/15 bg-[#ffffff] dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_-12px_40px_rgba(19,27,46,0.06)]">
+<div class="flex justify-around items-center px-4 pb-6 pt-3 w-full max-w-7xl mx-auto">
+<a class="flex flex-col items-center justify-center text-[#3f465c] dark:text-slate-400 px-5 py-2 hover:text-[#131b2e] dark:hover:text-white transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Intelligence</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#3f465c] dark:text-slate-400 px-5 py-2 hover:text-[#131b2e] dark:hover:text-white transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Grants</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#3f465c] dark:text-slate-400 px-5 py-2 hover:text-[#131b2e] dark:hover:text-white transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Agents</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#131b2e] text-white rounded-xl px-5 py-2 transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Settings</span>
+</a>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#002113",
+                    "surface-container-highest": "#e4e2e4",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "tertiary-fixed": "#6ffbbe",
+                    "surface-dim": "#dcd9db",
+                    "outline-variant": "#c6c6cd",
+                    "primary-fixed-dim": "#bec6e0",
+                    "outline": "#76777d",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fcf8fa",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "primary": "#000000",
+                    "on-primary-fixed": "#131b2e",
+                    "surface-container-low": "#f6f3f5",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#002113",
+                    "primary-container": "#131b2e",
+                    "on-secondary-fixed-variant": "#004395",
+                    "surface-container-high": "#eae7e9",
+                    "on-secondary-fixed": "#001a42",
+                    "secondary-container": "#2170e4",
+                    "primary-fixed": "#dae2fd",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#565e74",
+                    "on-secondary-container": "#fefcff",
+                    "background": "#fcf8fa",
+                    "on-surface": "#1b1b1d",
+                    "inverse-on-surface": "#f3f0f2",
+                    "surface": "#fcf8fa",
+                    "on-background": "#1b1b1d",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-primary-container": "#7c839b",
+                    "inverse-primary": "#bec6e0",
+                    "secondary": "#0058be",
+                    "surface-container": "#f0edef",
+                    "surface-variant": "#e4e2e4",
+                    "on-surface-variant": "#45464d",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#000000",
+                    "on-tertiary-container": "#009668",
+                    "inverse-surface": "#303032",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .zebra-stripes div:nth-child(even) {
+            background-color: #f6f3f5;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Navigation Shell (Desktop Sidebar) -->
+<aside class="hidden md:flex flex-col h-screen p-6 fixed left-0 w-64 bg-[#f6f3f5] dark:bg-[#0F172A] z-50">
+<div class="mb-12">
+<span class="font-['Manrope'] font-extrabold text-[#131b2e] dark:text-white text-xl tracking-tight">Sovereign Auth</span>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-['Inter'] font-medium text-sm tracking-wide uppercase hover:bg-[#e4e2e4] dark:hover:bg-slate-800/30 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span>Security Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#131b2e] dark:text-white font-bold bg-[#e4e2e4] dark:bg-slate-800/50 rounded-lg font-['Inter'] text-sm tracking-wide uppercase transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_2">qr_code_2</span>
+<span>Method Setup</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-['Inter'] font-medium text-sm tracking-wide uppercase hover:bg-[#e4e2e4] dark:hover:bg-slate-800/30 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="pin">pin</span>
+<span>Verification</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 font-['Inter'] font-medium text-sm tracking-wide uppercase hover:bg-[#e4e2e4] dark:hover:bg-slate-800/30 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+<span>Recovery</span>
+</a>
+</nav>
+<div class="mt-auto p-4 rounded-lg bg-surface-container-highest/40">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Status</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span class="text-xs font-semibold text-on-tertiary-container">Session Secure</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-screen flex flex-col bg-surface relative overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-6 py-4 w-full top-0 bg-[#f6f3f5] dark:bg-[#1e293b]">
+<div class="flex items-center gap-4">
+<button class="cursor-pointer active:scale-95 duration-150 text-[#131b2e] dark:text-[#f6f3f5]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Manrope'] font-bold tracking-tight text-xl text-[#131b2e] dark:text-[#f6f3f5]">2FA Security</h1>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<span class="font-['Manrope'] font-black text-[#131b2e] dark:text-white uppercase tracking-widest text-lg">Sovereign</span>
+</div>
+</header>
+<!-- Centered Work Surface -->
+<div class="flex-grow flex items-center justify-center p-4 md:p-12">
+<div class="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Instructions & Progress -->
+<div class="lg:col-span-5 flex flex-col space-y-8">
+<div class="space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase tracking-widest">
+                            Step 2 of 3
+                        </div>
+<h2 class="font-headline font-extrabold text-4xl md:text-5xl text-on-surface leading-tight tracking-tighter">
+                            Link Your App
+                        </h2>
+<p class="text-on-surface-variant text-lg leading-relaxed font-body">
+                            Scan this QR code with your authenticator app to generate your secure token.
+                        </p>
+</div>
+<div class="space-y-6 pt-4">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm">1</div>
+<p class="text-sm text-on-surface-variant">Open your preferred authenticator (Google, Authy, or Microsoft).</p>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm">2</div>
+<p class="text-sm text-on-surface-variant">Select "Add Account" and point your camera at the QR code.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-sm">3</div>
+<p class="text-sm text-on-surface-variant">Verify the 6-digit code on the next screen.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive Scan Area -->
+<div class="lg:col-span-7 flex flex-col items-center">
+<!-- The Focus Sheet -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-8 md:p-12 flex flex-col items-center shadow-[0_12px_40px_rgba(19,27,46,0.04)] border border-outline-variant/10">
+<!-- QR Code Container -->
+<div class="relative group">
+<div class="absolute -inset-4 bg-gradient-to-tr from-primary-container/5 to-secondary-container/5 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative w-64 h-64 bg-white p-4 rounded-lg shadow-sm border border-outline-variant/20">
+<img alt="Security QR Code" class="w-full h-full object-contain" data-alt="A clean high-contrast black and white QR code centered on a white square background with minimalist borders" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc_zGzm55venPUb0lNvrCKILkQTXu4YqA2Eac5nNYFGpDrtWsqTJZVS3jjs1W2_zJLCqwf74t-nDWaR8-TpW-EBJwRNVurITH0WvRpYw3Ep9aHeNw00vJ5yuO7_LS6B-IUhuLIdmHLABLYmj1DwPRTqTH5Nj2_O-sl_w5PXCvcudp_FahPEHarcvl2ondL-21gtlGybVub5ZiHggKbv6Ms5uWZPAl0JYoZ-abRnbQutzZFvTUAX1AM4zDuPIMNZrvv2UnHv3aFiC8"/>
+</div>
+</div>
+<!-- Manual Entry Section -->
+<div class="mt-12 w-full max-w-sm">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.2em] text-center mb-4">
+                                Secret Key
+                            </p>
+<div class="flex items-center gap-2 p-4 bg-surface-container-low rounded-lg group hover:bg-surface-container-high transition-colors cursor-pointer">
+<code class="flex-grow font-mono text-lg font-bold text-on-surface tracking-[0.15em] text-center">ABCD 1234 EFGH 5678</code>
+<span class="material-symbols-outlined text-on-primary-container" data-icon="content_copy">content_copy</span>
+</div>
+<p class="mt-4 text-xs text-on-surface-variant text-center italic">
+                                Can't scan? Enter this key manually.
+                            </p>
+</div>
+<!-- Primary Action -->
+<div class="mt-12 w-full">
+<button class="w-full bg-primary-container text-on-primary py-5 rounded-lg font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-3 hover:shadow-xl hover:-translate-y-0.5 active:scale-95 transition-all duration-200">
+<span>I've Scanned the Code</span>
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Trust Indicators -->
+<div class="mt-8 flex flex-wrap justify-center gap-6 opacity-40">
+<div class="flex items-center gap-2 grayscale">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">FIPS 140-2</span>
+</div>
+<div class="flex items-center gap-2 grayscale">
+<span class="material-symbols-outlined text-sm" data-icon="encrypted">encrypted</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">End-to-End Encryption</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Visual Decor -->
+<div class="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container/20 to-transparent"></div>
+</main>
+<!-- Bottom Nav (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 glass-panel border-t border-outline-variant/10 px-6 py-4 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#131b2e] font-bold">
+<span class="material-symbols-outlined" data-icon="qr_code_2" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="pin">pin</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+</button>
+</nav>
+</body></html>

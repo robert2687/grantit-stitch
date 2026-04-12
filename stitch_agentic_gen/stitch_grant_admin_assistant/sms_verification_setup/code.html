@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SMS Verification Setup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fcf8fa",
+                    "background": "#fcf8fa",
+                    "error": "#ba1a1a",
+                    "outline": "#76777d",
+                    "on-primary-container": "#7c839b",
+                    "surface-container-high": "#eae7e9",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#002113",
+                    "primary-fixed": "#dae2fd",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#bec6e0",
+                    "primary-container": "#131b2e",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-dim": "#dcd9db",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "secondary-container": "#2170e4",
+                    "inverse-surface": "#303032",
+                    "surface-container-low": "#f6f3f5",
+                    "surface-variant": "#e4e2e4",
+                    "on-secondary-fixed": "#001a42",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-background": "#1b1b1d",
+                    "inverse-primary": "#bec6e0",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#000000",
+                    "on-secondary-fixed-variant": "#004395",
+                    "on-surface-variant": "#45464d",
+                    "on-tertiary-container": "#009668",
+                    "outline-variant": "#c6c6cd",
+                    "on-surface": "#1b1b1d",
+                    "tertiary": "#000000",
+                    "surface-tint": "#565e74",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e4e2e4",
+                    "on-primary-fixed": "#131b2e",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#002113",
+                    "tertiary-fixed": "#6ffbbe",
+                    "surface": "#fcf8fa",
+                    "secondary-fixed": "#d8e2ff",
+                    "inverse-on-surface": "#f3f0f2",
+                    "surface-container": "#f0edef",
+                    "secondary": "#0058be",
+                    "on-secondary-container": "#fefcff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-[#fcf8fa] dark:bg-slate-950 z-50">
+<div class="flex items-center px-6 h-16 w-full max-w-7xl mx-auto">
+<button class="mr-4 text-[#131b2e] dark:text-slate-100 active:scale-95 duration-150 p-2 rounded-full hover:bg-[#e4e2e4] dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-['Manrope'] font-bold tracking-tight text-lg text-[#131b2e] dark:text-slate-100">Verification</h1>
+</div>
+</header>
+<main class="flex-grow flex flex-col px-6 pt-8 pb-24 max-w-lg mx-auto w-full">
+<!-- Editorial Header Section -->
+<section class="mb-10">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary-container text-on-primary mb-6 shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 600;">sms</span>
+</div>
+<h2 class="text-[1.75rem] font-extrabold font-headline text-primary-container leading-tight tracking-tight mb-4">SMS Verification</h2>
+<p class="text-body text-on-primary-fixed-variant leading-relaxed opacity-90">
+                Enter your mobile number to receive a secure 6-digit verification code. Standard messaging rates may apply.
+            </p>
+</section>
+<!-- Functional Canvas (Surface Layering) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_12px_40px_rgba(19,27,46,0.04)] space-y-6">
+<!-- Country Selector -->
+<div class="space-y-2">
+<label class="font-label text-[0.6875rem] font-bold uppercase tracking-widest text-on-primary-fixed-variant">Country Selector</label>
+<div class="relative group">
+<button class="w-full flex items-center justify-between bg-surface-container-low px-4 py-4 rounded-lg border-b-2 border-outline-variant/20 hover:border-secondary transition-all text-left">
+<div class="flex items-center gap-3">
+<div class="w-6 h-4 bg-slate-200 rounded-sm overflow-hidden border border-outline-variant/10">
+<img alt="USA Flag" class="w-full h-full object-cover" data-alt="Small detailed icon of the United States flag with vibrant red and blue colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5RnbB1wKvzeGmmX3uFgpOIvBGYT7GTgot1WLkRZ1b4R6sDBSM20LKARgGRdEIkgoJTKf6LNEDhfBZG8yhe6EZ0N5KIZRjWRBXuPtxc4xWFTKPsqoNxR4RXiqoCk0aDRw65htCC0QURVYC2gcC5bIe9iVOXreREBVkYWB-8bRMlbG_qDHV0hamBlHvUTaEoPDzads6BsJxkklJseuhhfQa_2IgEWd4kjicD01hj0Ub-DuwRgVWz4xvyDCKLoVUivc15M2U4v8TvAg"/>
+</div>
+<span class="text-on-surface font-medium">United States (+1)</span>
+</div>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Phone Number Input -->
+<div class="space-y-2">
+<label class="font-label text-[0.6875rem] font-bold uppercase tracking-widest text-on-primary-fixed-variant">Phone Number Input</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low px-4 py-4 rounded-lg border-none border-b-2 border-outline-variant/20 focus:border-secondary focus:ring-0 focus:bg-surface-container-lowest transition-all text-on-surface font-medium placeholder:text-outline/50" placeholder="(555) 000-0000" type="tel"/>
+</div>
+</div>
+<!-- Primary CTA -->
+<div class="pt-2">
+<button class="w-full bg-primary-container text-on-primary py-4 rounded-lg font-headline font-bold text-base shadow-lg shadow-primary-container/10 active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                    Send Verification Code
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Secondary Guidance -->
+<div class="mt-8 px-2">
+<div class="flex gap-4 items-start text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-outline-variant mt-0.5" style="font-size: 20px;">info</span>
+<p class="text-[0.8125rem] leading-relaxed italic">
+                    We'll send a code to this number to verify your identity. Your number will only be used for security purposes.
+                </p>
+</div>
+</div>
+<!-- Visual Security Indicator (Editorial Touch) -->
+<div class="mt-auto pt-12 flex flex-col items-center opacity-40">
+<div class="w-16 h-1 bg-surface-container-highest rounded-full mb-4"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs" data-weight="fill">verified_user</span>
+<span class="text-[0.625rem] font-bold uppercase tracking-[0.2em] font-label">End-to-End Encrypted</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Suppressed as per "Linear/Transactional" rule, but included for structure if needed elsewhere) -->
+<!-- Suppression logic: This is a setup/transactional flow, NavBar is hidden to maintain focus -->
+</body></html>

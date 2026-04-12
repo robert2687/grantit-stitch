@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI App Generator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A44E0",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#12121A",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-slate-800 dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Generating: NovaPay</h2>
+</div>
+<div class="flex-grow p-4 space-y-6">
+<!-- Progress Bar -->
+<div class="flex flex-col gap-3 rounded-xl bg-slate-100 dark:bg-slate-800/50 p-4">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Overall Progress</p>
+<p class="text-primary text-lg font-bold leading-normal">65%</p>
+</div>
+<div class="rounded-full bg-slate-300 dark:bg-slate-700 h-2">
+<div class="h-2 rounded-full bg-primary" style="width: 65%;"></div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Currently: Running Tests</p>
+</div>
+<!-- Generation Stages -->
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2 pt-4">Generation Stages</h3>
+<div class="flex flex-col gap-2">
+<!-- List Item: Completed -->
+<div class="flex items-center gap-4 bg-transparent min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-green-500 flex items-center justify-center rounded-lg bg-green-500/10 shrink-0 size-10">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-normal leading-normal flex-1 truncate">Planning</p>
+</div>
+<div class="shrink-0">
+<p class="text-green-500 text-base font-medium leading-normal">Completed</p>
+</div>
+</div>
+<!-- List Item: Completed -->
+<div class="flex items-center gap-4 bg-transparent min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-green-500 flex items-center justify-center rounded-lg bg-green-500/10 shrink-0 size-10">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-normal leading-normal flex-1 truncate">UI/UX Design</p>
+</div>
+<div class="shrink-0">
+<p class="text-green-500 text-base font-medium leading-normal">Completed</p>
+</div>
+</div>
+<!-- List Item: In Progress -->
+<div class="flex items-center gap-4 bg-primary/10 rounded-lg min-h-14 justify-between p-4">
+<div class="flex items-center gap-4">
+<div class="text-amber-500 flex items-center justify-center rounded-lg bg-amber-500/10 shrink-0 size-10">
+<span class="material-symbols-outlined text-2xl animate-spin" style="animation-duration: 2s;">sync</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal flex-1 truncate">Coding &amp; Testing</p>
+</div>
+<div class="shrink-0">
+<p class="text-amber-500 text-base font-medium leading-normal">In Progress</p>
+</div>
+</div>
+<!-- Collapsible Agent Activity Log -->
+<details class="group bg-transparent rounded-lg">
+<summary class="list-none flex items-center justify-between cursor-pointer p-4 -mt-2">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">Agent Activity Log</span>
+<span class="material-symbols-outlined text-slate-400 transform transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-4 pb-4 space-y-2 text-sm text-slate-500 dark:text-slate-400">
+<p><span class="font-mono text-xs">[14:32:10]</span> <span class="text-sky-400">CodeAgent:</span> Generating authentication module...</p>
+<p><span class="font-mono text-xs">[14:32:45]</span> <span class="text-sky-400">CodeAgent:</span> Authentication module complete.</p>
+<p><span class="font-mono text-xs">[14:32:46]</span> <span class="text-emerald-400">TestAgent:</span> Running unit tests on auth module...</p>
+</div>
+</details>
+<!-- List Item: Queued -->
+<div class="flex items-center gap-4 bg-transparent min-h-14 justify-between opacity-50">
+<div class="flex items-center gap-4">
+<div class="text-slate-500 dark:text-slate-400 flex items-center justify-center rounded-lg bg-slate-500/10 shrink-0 size-10">
+<span class="material-symbols-outlined text-2xl">rocket_launch</span>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-normal leading-normal flex-1 truncate">Deployment</p>
+</div>
+<div class="shrink-0">
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-normal">Queued</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Estimated Time -->
+<div class="flex items-center justify-between rounded-xl bg-slate-100 dark:bg-slate-800/50 p-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">timer</span>
+<p class="text-slate-900 dark:text-white font-medium">Estimated Time Remaining</p>
+</div>
+<p class="text-slate-900 dark:text-white font-bold">Approx. 8 minutes</p>
+</div>
+</div>
+<!-- Sticky Footer for Cancel Button -->
+<div class="sticky bottom-0 w-full p-4 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800">
+<button class="w-full bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white font-bold py-3 px-4 rounded-xl hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+                Cancel Generation
+            </button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Auth - Final Verification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#002113",
+                    "surface-container-highest": "#e4e2e4",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "tertiary-fixed": "#6ffbbe",
+                    "surface-dim": "#dcd9db",
+                    "outline-variant": "#c6c6cd",
+                    "primary-fixed-dim": "#bec6e0",
+                    "outline": "#76777d",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fcf8fa",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "primary": "#000000",
+                    "on-primary-fixed": "#131b2e",
+                    "surface-container-low": "#f6f3f5",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#002113",
+                    "primary-container": "#131b2e",
+                    "on-secondary-fixed-variant": "#004395",
+                    "surface-container-high": "#eae7e9",
+                    "on-secondary-fixed": "#001a42",
+                    "secondary-container": "#2170e4",
+                    "primary-fixed": "#dae2fd",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#565e74",
+                    "on-secondary-container": "#fefcff",
+                    "background": "#fcf8fa",
+                    "on-surface": "#1b1b1d",
+                    "inverse-on-surface": "#f3f0f2",
+                    "surface": "#fcf8fa",
+                    "on-background": "#1b1b1d",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-primary-container": "#7c839b",
+                    "inverse-primary": "#bec6e0",
+                    "secondary": "#0058be",
+                    "surface-container": "#f0edef",
+                    "surface-variant": "#e4e2e4",
+                    "on-surface-variant": "#45464d",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#000000",
+                    "on-tertiary-container": "#009668",
+                    "inverse-surface": "#303032",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .otp-input:focus {
+            outline: none;
+            border-bottom: 2px solid #0058be !important;
+            background-color: #ffffff !important;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-hidden">
+<!-- TopAppBar Navigation Shell -->
+<header class="fixed top-0 z-50 w-full flex items-center justify-between px-6 py-4 bg-[#fcf8fa] dark:bg-[#0F172A]">
+<div class="flex items-center gap-4">
+<div class="cursor-pointer active:scale-95 duration-150 text-[#131b2e] dark:text-[#f6f3f5]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</div>
+<h1 class="font-['Manrope'] font-bold tracking-tight text-xl text-[#131b2e] dark:text-[#f6f3f5]">2FA Security</h1>
+</div>
+<div class="font-['Manrope'] font-black text-[#131b2e] dark:text-white uppercase tracking-widest text-lg">
+            Sovereign
+        </div>
+</header>
+<!-- Side Navigation Shell (Desktop) -->
+<aside class="hidden md:flex flex-col h-screen p-6 fixed left-0 top-0 w-64 bg-[#f6f3f5] dark:bg-[#0F172A] z-40 overflow-y-auto">
+<div class="mb-10 mt-16">
+<span class="font-['Manrope'] font-extrabold text-[#131b2e] dark:text-white text-2xl">Sovereign Auth</span>
+</div>
+<nav class="space-y-2">
+<div class="flex items-center gap-3 p-3 text-slate-500 dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-['Inter'] font-medium text-sm tracking-wide uppercase">Security Overview</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="qr_code_2">qr_code_2</span>
+<span class="font-['Inter'] font-medium text-sm tracking-wide uppercase">Method Setup</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-[#131b2e] dark:text-white font-bold bg-[#e4e2e4] dark:bg-slate-800/50 rounded-lg cursor-pointer">
+<span class="material-symbols-outlined" data-icon="pin" style="font-variation-settings: 'FILL' 1;">pin</span>
+<span class="font-['Inter'] font-medium text-sm tracking-wide uppercase">Verification</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+<span class="font-['Inter'] font-medium text-sm tracking-wide uppercase">Recovery</span>
+</div>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-20 h-screen overflow-y-auto bg-surface">
+<div class="max-w-4xl mx-auto p-8 md:p-12">
+<!-- Progress Indicator -->
+<div class="flex items-center justify-between mb-12">
+<div class="flex items-center gap-2">
+<span class="font-label text-xs uppercase tracking-widest text-on-primary-container">Step 3 of 3</span>
+<div class="h-1 w-32 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-full"></div>
+</div>
+</div>
+<span class="font-label text-xs font-bold text-primary-container uppercase">Final Verification</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Instructions & Interaction -->
+<div class="lg:col-span-7 space-y-10">
+<section>
+<h2 class="font-headline text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface mb-4">Final Verification</h2>
+<p class="text-on-surface-variant leading-relaxed max-w-md">
+                            Enter the 6-digit code generated by your app. This confirms your device is correctly synced with the Sovereign network.
+                        </p>
+</section>
+<div class="space-y-6">
+<div class="flex gap-2 md:gap-4 items-center">
+<input class="otp-input w-12 h-16 text-center text-2xl font-bold bg-surface-container-low border-b border-outline-variant transition-all focus:bg-surface-container-lowest" maxlength="1" type="text" value="4"/>
+<input class="otp-input w-12 h-16 text-center text-2xl font-bold bg-surface-container-low border-b border-outline-variant transition-all focus:bg-surface-container-lowest" maxlength="1" type="text" value="8"/>
+<input class="otp-input w-12 h-16 text-center text-2xl font-bold bg-surface-container-low border-b border-outline-variant transition-all focus:bg-surface-container-lowest" maxlength="1" type="text" value="2"/>
+<span class="text-outline-variant text-2xl font-light mx-1">—</span>
+<input class="otp-input w-12 h-16 text-center text-2xl font-bold bg-surface-container-low border-b border-outline-variant transition-all focus:bg-surface-container-lowest" maxlength="1" placeholder="0" type="text"/>
+<input class="otp-input w-12 h-16 text-center text-2xl font-bold bg-surface-container-low border-b border-outline-variant transition-all focus:bg-surface-container-lowest" maxlength="1" placeholder="0" type="text"/>
+<input class="otp-input w-12 h-16 text-center text-2xl font-bold bg-surface-container-low border-b border-outline-variant transition-all focus:bg-surface-container-lowest" maxlength="1" placeholder="0" type="text"/>
+</div>
+<p class="font-label text-xs text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+                            Codes regenerate every 30 seconds
+                        </p>
+</div>
+<div>
+<button class="bg-primary-container text-on-primary font-headline font-bold py-4 px-12 rounded-lg hover:opacity-90 active:scale-95 transition-all flex items-center gap-3">
+                            Finish Setup
+                            <span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Success Card & Backup (Editorial Glassmorphism) -->
+<div class="lg:col-span-5 relative group">
+<!-- High Security Success State Visualization -->
+<div class="bg-surface-container-lowest p-8 rounded-xl relative z-10 shadow-[0_12px_40px_rgba(19,27,46,0.04)] border border-white/50 backdrop-blur-sm">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container text-2xl" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold text-on-surface">2FA Activated</h3>
+<p class="font-label text-xs text-on-tertiary-container uppercase tracking-widest font-semibold">Active Status: Secure</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="p-4 bg-surface-container-low rounded-lg space-y-3">
+<div class="flex justify-between items-center">
+<h4 class="font-label text-[10px] font-bold text-outline uppercase tracking-widest">Backup Codes</h4>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors text-lg" data-icon="content_copy">content_copy</span>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<div class="font-mono text-sm tracking-tighter text-on-primary-fixed flex justify-between bg-surface px-2 py-1.5 rounded">
+<span>7892-4412</span>
+<span class="material-symbols-outlined text-xs text-outline-variant" data-icon="lock">lock</span>
+</div>
+<div class="font-mono text-sm tracking-tighter text-on-primary-fixed flex justify-between bg-surface px-2 py-1.5 rounded">
+<span>3301-9285</span>
+<span class="material-symbols-outlined text-xs text-outline-variant" data-icon="lock">lock</span>
+</div>
+<div class="font-mono text-sm tracking-tighter text-on-primary-fixed flex justify-between bg-surface px-2 py-1.5 rounded">
+<span>1044-6672</span>
+<span class="material-symbols-outlined text-xs text-outline-variant" data-icon="lock">lock</span>
+</div>
+<div class="font-mono text-sm tracking-tighter text-on-primary-fixed flex justify-between bg-surface px-2 py-1.5 rounded">
+<span>5921-3309</span>
+<span class="material-symbols-outlined text-xs text-outline-variant" data-icon="lock">lock</span>
+</div>
+<div class="font-mono text-sm tracking-tighter text-on-primary-fixed flex justify-between bg-surface px-2 py-1.5 rounded">
+<span>0042-8817</span>
+<span class="material-symbols-outlined text-xs text-outline-variant" data-icon="lock">lock</span>
+</div>
+</div>
+</div>
+<button class="w-full py-3 px-4 border border-outline-variant text-on-surface font-label text-xs font-bold uppercase tracking-widest hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                                Download Recovery Kit
+                            </button>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -top-4 -right-4 w-full h-full bg-primary-container/5 rounded-xl -z-0"></div>
+</div>
+</div>
+<!-- Descriptive Metric Footer Section -->
+<section class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-6 bg-surface-container-low rounded-lg">
+<div class="text-outline-variant mb-2">
+<span class="material-symbols-outlined text-3xl" data-icon="shield_lock">shield_lock</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface mb-1">Vault Encryption</h4>
+<p class="text-sm text-on-surface-variant">All authentication tokens are encrypted via AES-256 GCM.</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-lg">
+<div class="text-outline-variant mb-2">
+<span class="material-symbols-outlined text-3xl" data-icon="lan">lan</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface mb-1">Global Sync</h4>
+<p class="text-sm text-on-surface-variant">Proprietary sovereign network ensures latency-free verification.</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-lg">
+<div class="text-outline-variant mb-2">
+<span class="material-symbols-outlined text-3xl" data-icon="privacy_tip">privacy_tip</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface mb-1">Zero Trust</h4>
+<p class="text-sm text-on-surface-variant">Your keys never leave your device. Only hashes are validated.</p>
+</div>
+</section>
+</div>
+</main>
+<!-- Visual Identity Background Accent -->
+<div class="fixed bottom-0 right-0 w-1/3 h-1/2 opacity-[0.03] pointer-events-none -z-10 bg-no-repeat bg-right-bottom bg-contain" data-alt="large translucent architectural blueprint of a digital lock mechanism used as a subtle background pattern" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_pNSb1kB3djgvQB0_3ZSGAO7sy1Ndf9dFGkb9h_lA197q2UsyteyRjgpcFiuBe-3KASPrJbAXKGMUle2NeHFfkGiICw3oSSoNlDC86QflDsVHhUvaQ12evvyh4rFxT66AAl2RyPzshI_GzR2VHgadlmHu6uSgdTbWA8xLskkfc2KXKJFNypjxX_fBiybUpOZachwsU2-DRiWcB7VwAD2HGqx_ncaIBmaGPjKomze9E8A0m6_RmEJ6MvI1Om6RooLVhE9kphRZS74')"></div>
+</body></html>

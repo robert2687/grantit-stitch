@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grant Explorer - RMD26 Proposal Agent</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#f0edef",
+                    "on-secondary-container": "#fefcff",
+                    "secondary": "#0058be",
+                    "surface-container-highest": "#e4e2e4",
+                    "on-error": "#ffffff",
+                    "tertiary": "#000000",
+                    "surface-tint": "#565e74",
+                    "outline-variant": "#c6c6cd",
+                    "on-surface": "#1b1b1d",
+                    "inverse-on-surface": "#f3f0f2",
+                    "secondary-fixed": "#d8e2ff",
+                    "tertiary-fixed": "#6ffbbe",
+                    "surface": "#fcf8fa",
+                    "on-tertiary-fixed": "#002113",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#131b2e",
+                    "primary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#009668",
+                    "on-surface-variant": "#45464d",
+                    "on-secondary-fixed-variant": "#004395",
+                    "surface-container-low": "#f6f3f5",
+                    "inverse-primary": "#bec6e0",
+                    "on-background": "#1b1b1d",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-secondary-fixed": "#001a42",
+                    "surface-variant": "#e4e2e4",
+                    "secondary-container": "#2170e4",
+                    "inverse-surface": "#303032",
+                    "surface-dim": "#dcd9db",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "primary-container": "#131b2e",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "surface-container-high": "#eae7e9",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#dae2fd",
+                    "tertiary-container": "#002113",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#7c839b",
+                    "outline": "#76777d",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fcf8fa",
+                    "background": "#fcf8fa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-30 flex items-center justify-between px-6 h-16 bg-[#fcf8fa] dark:bg-slate-950 backdrop-blur-md bg-opacity-80 font-['Manrope'] font-semibold text-lg text-[#131b2e] dark:text-slate-100">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer">menu</span>
+<span class="text-lg font-black text-[#131b2e] dark:text-white uppercase tracking-tighter">Grant Explorer</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">history</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User Profile" data-alt="Professional male portrait in corporate attire against a neutral studio background, high-end photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp3f-uo8oPq2DCMebbOlIRZqURYRI-ANU_mGYXqt2QjbEMCNyEhq9XTVgYPKgl3FFsTIDAg2UnvVgzMC4Z3yHm05XLE4k1UTxtm3xkuY0vbzWrM9cZ4rl9gw_M3I2X4UDgdxd0i6mXViqScy8OtfmiVY_gDvAKxUgW_QN95rcFz9x2XaEZPWR9GIsEhqG-PCZl4f99WVuEoeWyKWBzH-7oP3iBnCIWEQXjqBfYLedeiBBeFhDtGD_J4-vndF-kk9VyFK38LnZ4TP8"/>
+</div>
+</div>
+</header>
+<main class="px-4 pt-4 max-w-md mx-auto">
+<!-- Page Title & Subtitle -->
+<div class="mb-6">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold tracking-[0.2em] text-on-primary-container uppercase">Proposal RMD26</span>
+<div class="flex items-center gap-1 bg-tertiary-container px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span class="text-[9px] font-bold text-on-tertiary-container uppercase tracking-wider">Drafting</span>
+</div>
+</div>
+<h1 class="text-2xl font-extrabold text-primary-container mt-1 tracking-tight">Copywriter Agent</h1>
+</div>
+<!-- Section Progress Tracker -->
+<section class="bg-surface-container-low rounded-xl p-4 mb-6">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Section Progress</h3>
+<span class="text-xs font-semibold text-primary-container">64% Overall</span>
+</div>
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 flex items-center justify-center rounded-full bg-tertiary-container">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs font-semibold">Executive Summary</span>
+<span class="text-[10px] text-on-surface-variant">100%</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-on-tertiary-container w-full"></div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 flex items-center justify-center rounded-full bg-secondary-fixed">
+<span class="text-[10px] font-bold text-on-secondary-fixed-variant">02</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs font-semibold">Technical Methodology</span>
+<span class="text-[10px] text-on-surface-variant">42%</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[42%]"></div>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 flex items-center justify-center rounded-full bg-surface-container-highest">
+<span class="text-[10px] font-bold text-outline">03</span>
+</div>
+<div class="flex-1 opacity-50">
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs font-semibold">Budget Justification</span>
+<span class="text-[10px] text-on-surface-variant">0%</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-0"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Editor Area -->
+<section class="bg-surface-container-lowest rounded-xl p-4 shadow-sm min-h-[400px] flex flex-col">
+<div class="flex items-center justify-between mb-4 pb-3 border-b border-outline-variant/10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="text-sm font-bold">Technical Methodology</span>
+</div>
+<button class="text-xs font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">history</span>
+                    V2.4
+                </button>
+</div>
+<div class="flex-1 text-sm leading-relaxed text-on-surface-variant">
+<p class="mb-4">The proposed architecture for the RMD26 framework utilizes a decentralized consensus algorithm designed to handle high-latency networks while maintaining transactional integrity. Our implementation focuses on <span class="bg-secondary-fixed/50 border-b border-secondary border-dashed px-0.5">low-power processing units</span> commonly found in remote sensor deployments...</p>
+<div class="my-6 bg-surface-container-low rounded-lg p-4 border-l-4 border-secondary">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary text-base">auto_awesome</span>
+<span class="text-[11px] font-bold text-secondary uppercase tracking-widest">AI Improvement</span>
+</div>
+<p class="text-xs italic text-on-surface">"Consider specifying the exact CPU architecture (e.g., ARM Cortex-M4) to strengthen the technical feasibility section."</p>
+<div class="flex gap-2 mt-3">
+<button class="bg-secondary text-white px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider">Apply</button>
+<button class="bg-surface-container-highest text-on-surface px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider">Dismiss</button>
+</div>
+</div>
+<p>Furthermore, the security protocol ensures that all end-points are authenticated via a rotating hardware-based key management system...</p>
+</div>
+<div class="mt-6 flex flex-col gap-3">
+<button class="w-full py-3 bg-error-container text-on-error-container rounded-lg flex items-center justify-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg">contact_support</span>
+<span class="text-xs font-bold uppercase tracking-widest">Request Missing Info</span>
+</button>
+<div class="flex gap-2">
+<button class="flex-1 py-3 bg-primary-container text-on-primary rounded-lg flex items-center justify-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg">save</span>
+<span class="text-xs font-bold uppercase tracking-widest">Save Draft</span>
+</button>
+<button class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center transition-all active:scale-95">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Sidebar / Drawer Handle (Visual Indicator) -->
+<div class="flex justify-center mt-4">
+<div class="flex items-center gap-2 bg-surface-container-highest/50 px-4 py-2 rounded-full cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant">keyboard_arrow_up</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Show Details</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-white dark:bg-slate-900 border-t border-[#c6c6cd]/20 shadow-[0_-4px_20px_rgba(19,27,46,0.04)]">
+<div class="flex flex-col items-center justify-center text-[#3f465c] dark:text-slate-400 hover:bg-[#f6f3f5] dark:hover:bg-slate-800 transition-transform scale-95 active:scale-90 p-2">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#131b2e] text-white rounded-xl px-3 py-1 transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined">description</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Drafts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#3f465c] dark:text-slate-400 hover:bg-[#f6f3f5] dark:hover:bg-slate-800 transition-transform scale-95 active:scale-90 p-2">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#3f465c] dark:text-slate-400 hover:bg-[#f6f3f5] dark:hover:bg-slate-800 transition-transform scale-95 active:scale-90 p-2">
+<span class="material-symbols-outlined">menu_open</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Menu</span>
+</div>
+</nav>
+</body></html>

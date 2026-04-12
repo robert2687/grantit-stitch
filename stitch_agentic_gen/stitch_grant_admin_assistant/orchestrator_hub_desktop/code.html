@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Orchestrator Hub | RMD26</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary-container": "#002113",
+                        "tertiary-fixed": "#6ffbbe",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8fa",
+                        "inverse-on-surface": "#f3f0f2",
+                        "tertiary": "#000000",
+                        "on-surface": "#1b1b1d",
+                        "secondary": "#0058be",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-container-low": "#f6f3f5",
+                        "surface-container-high": "#eae7e9",
+                        "on-secondary-fixed": "#001a42",
+                        "on-primary-container": "#7c839b",
+                        "primary": "#000000",
+                        "on-secondary-fixed-variant": "#004395",
+                        "surface": "#fcf8fa",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fcf8fa",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "inverse-surface": "#303032",
+                        "secondary-fixed": "#d8e2ff",
+                        "secondary-container": "#2170e4",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-container": "#009668",
+                        "on-primary-fixed": "#131b2e",
+                        "on-primary": "#ffffff",
+                        "outline": "#76777d",
+                        "on-surface-variant": "#45464d",
+                        "surface-container": "#f0edef",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcd9db",
+                        "primary-container": "#131b2e",
+                        "surface-tint": "#565e74",
+                        "on-tertiary-fixed": "#002113",
+                        "primary-fixed": "#dae2fd",
+                        "surface-variant": "#e4e2e4",
+                        "on-secondary-container": "#fefcff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container-highest": "#e4e2e4",
+                        "on-error": "#ffffff",
+                        "on-background": "#1b1b1d",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "outline-variant": "#c6c6cd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .zebra-striping div:nth-child(even) { background-color: #f6f3f5; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full z-40 w-64 bg-[#f6f3f5] dark:bg-slate-900 font-['Manrope'] font-bold tracking-tight border-r-0 transition-all duration-200 ease-in-out">
+<div class="flex items-center justify-between px-6 h-16">
+<span class="text-xl font-bold text-[#131b2e] dark:text-white">Sovereign Architect</span>
+<span class="material-symbols-outlined text-[#3f465c] cursor-pointer">menu_open</span>
+</div>
+<nav class="mt-4 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-[#e4e2e4] dark:bg-slate-800 text-[#131b2e] dark:text-white font-semibold rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+                Search
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="rate_review">rate_review</span>
+                Evaluation
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                Proposals
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] dark:hover:bg-slate-800 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+                Admin
+            </a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- Top Bar -->
+<header class="sticky top-0 w-full z-30 flex items-center justify-between px-8 h-16 bg-[#fcf8fa] dark:bg-slate-950 backdrop-blur-md bg-opacity-80 font-['Manrope'] font-semibold text-lg">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#131b2e] cursor-pointer">menu</span>
+<h1 class="text-lg font-black text-[#131b2e] dark:text-white">Grant Explorer</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-1.5 rounded-full border-b border-outline-variant/20">
+<span class="material-symbols-outlined text-outline text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64 p-0" placeholder="Global Orchestrator Search..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<div class="text-right">
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-widest leading-none">Status</p>
+<p class="text-xs font-bold text-[#131b2e]">HUB ACTIVE</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white text-xs font-bold ring-2 ring-surface overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" data-alt="Professional corporate portrait of a modern female executive in neutral lighting studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd0twm0PGypPI0Qg4EuQuZzeM8Gc1I8WHw3yirXI20JE2sCn7Gz4mFgd1UlLHV7Kst93KD4IDG4VXiokevbCJ04ykdYfLEiZzXA6tNUKN5tsjvar-ML07PaR6WRUEweFQMsZwbp5QlZikq-lcIn4CU2UE9albcGhvE-QDsNgjsS8hgAYLV2JCAJUmAhVGAwE5TTl3dSK-fQlv4up4ZuC026jpXoqs3NrBhnXaeJ1Ma92P71qHSwGO6kp37j-199o_j-7vrCOluomc"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8">
+<!-- Hero Stats: Asymmetric Editorial Layout -->
+<section class="grid grid-cols-12 gap-8 mb-12">
+<div class="col-span-12 lg:col-span-8">
+<h2 class="text-[10px] font-bold text-on-primary-fixed-variant uppercase tracking-widest mb-2">Global Landscape Overview</h2>
+<div class="relative overflow-hidden bg-primary-container rounded-xl p-10 text-white min-h-[320px] flex flex-col justify-end group">
+<div class="absolute top-0 right-0 p-8">
+<span class="material-symbols-outlined text-white/20 text-9xl">public</span>
+</div>
+<div class="relative z-10">
+<h3 class="text-[3.5rem] font-headline font-extrabold leading-none tracking-tight mb-4">$24.8B</h3>
+<p class="text-lg text-on-primary-fixed-dim max-w-md font-body leading-relaxed">
+                                Total managed orchestrations across RMD26 ecosystem. Current throughput performing at <span class="text-tertiary-fixed font-bold">+12.4%</span> above annual benchmark.
+                            </p>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="bg-white text-primary-container px-6 py-2.5 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">Deploy Funds</button>
+<button class="border border-white/20 bg-white/5 backdrop-blur-md px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-white/10 transition-colors">Strategic View</button>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-8">
+<div class="bg-surface-container-lowest rounded-xl p-8 flex-1 flex flex-col justify-between shadow-[0_12px_40px_rgba(19,27,46,0.06)]">
+<div>
+<span class="material-symbols-outlined text-secondary text-3xl mb-4">analytics</span>
+<p class="text-[10px] font-bold text-outline uppercase tracking-widest">Active Requests</p>
+<h4 class="text-3xl font-headline font-bold text-on-surface">1,284</h4>
+</div>
+<div class="pt-4 border-t border-outline-variant/10">
+<p class="text-xs text-on-tertiary-container flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                                42 NEW IN LAST 24H
+                            </p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-8 flex-1 flex flex-col justify-between shadow-[0_12px_40px_rgba(19,27,46,0.06)]">
+<div>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-4">history_edu</span>
+<p class="text-[10px] font-bold text-outline uppercase tracking-widest">Grant Compliance</p>
+<h4 class="text-3xl font-headline font-bold text-on-surface">98.2%</h4>
+</div>
+<div class="pt-4 border-t border-outline-variant/10">
+<p class="text-xs text-on-primary-fixed-variant flex items-center gap-1 font-bold uppercase">
+                                Risk Threshold: Minimal
+                            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Agent Grid & Deadlines -->
+<section class="grid grid-cols-12 gap-8">
+<!-- Active Agents (Bento Style) -->
+<div class="col-span-12 xl:col-span-8">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="text-2xl font-headline font-bold text-on-surface">Orchestration Agents</h2>
+<p class="text-sm text-outline">Real-time status of automated grant processing units.</p>
+</div>
+<a class="text-secondary text-sm font-bold flex items-center gap-1 hover:underline" href="#">
+                            View All Network
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-tertiary-fixed-dim transition-transform hover:-translate-y-1">
+<div class="flex justify-between items-start mb-6">
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary-container">psychology</span>
+</div>
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded-full uppercase tracking-tighter">Running</span>
+</div>
+<h5 class="text-lg font-headline font-bold mb-1">Alpha-Vantage Core</h5>
+<p class="text-xs text-outline mb-6 leading-relaxed">Processing EU Environmental Directives and Tier 1 regional distributions.</p>
+<div class="flex justify-between items-center text-[10px] font-bold text-outline-variant">
+<span>LOAD: 64%</span>
+<span>UPTIME: 99.9%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 mt-2 rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full w-[64%]"></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-secondary transition-transform hover:-translate-y-1">
+<div class="flex justify-between items-start mb-6">
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary-container">shield_with_heart</span>
+</div>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold rounded-full uppercase tracking-tighter">Syncing</span>
+</div>
+<h5 class="text-lg font-headline font-bold mb-1">Sentinel-Compliance</h5>
+<p class="text-xs text-outline mb-6 leading-relaxed">Cross-referencing global sanctions and regulatory updates for RMD26.</p>
+<div class="flex justify-between items-center text-[10px] font-bold text-outline-variant">
+<span>LOAD: 88%</span>
+<span>UPTIME: 98.4%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 mt-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[88%]"></div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-error transition-transform hover:-translate-y-1">
+<div class="flex justify-between items-start mb-6">
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary-container">payments</span>
+</div>
+<span class="px-3 py-1 bg-error-container text-on-error-container text-[10px] font-bold rounded-full uppercase tracking-tighter">Attention</span>
+</div>
+<h5 class="text-lg font-headline font-bold mb-1">Fiscal-Gatekeeper</h5>
+<p class="text-xs text-outline mb-6 leading-relaxed">Awaiting manual verification for transfers exceeding $5.0M threshold.</p>
+<div class="flex justify-between items-center text-[10px] font-bold text-outline-variant">
+<span>QUEUED: 12</span>
+<span>LATENCY: 4s</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 mt-2 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[35%]"></div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-on-primary-fixed-variant transition-transform hover:-translate-y-1">
+<div class="flex justify-between items-start mb-6">
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary-container">summarize</span>
+</div>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[10px] font-bold rounded-full uppercase tracking-tighter">Standby</span>
+</div>
+<h5 class="text-lg font-headline font-bold mb-1">Review-Orchestrator</h5>
+<p class="text-xs text-outline mb-6 leading-relaxed">Generative synthesis of quarterly reports and impact analytics.</p>
+<div class="flex justify-between items-center text-[10px] font-bold text-outline-variant">
+<span>IDLE: 2h</span>
+<span>AUTO-RESUME: ON</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 mt-2 rounded-full overflow-hidden">
+<div class="bg-outline h-full w-0"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Critical Deadlines -->
+<div class="col-span-12 xl:col-span-4">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_12px_40px_rgba(19,27,46,0.06)] h-full">
+<h2 class="text-xl font-headline font-bold text-on-surface mb-6">Critical Deadlines</h2>
+<div class="space-y-6 zebra-striping">
+<div class="p-4 rounded-lg flex items-start gap-4">
+<div class="flex-shrink-0 text-center">
+<p class="text-xs font-bold text-error uppercase">Oct</p>
+<p class="text-2xl font-black text-on-surface leading-none">24</p>
+</div>
+<div>
+<h6 class="text-sm font-bold text-on-surface">Annual G8 Compliance Audit</h6>
+<p class="text-xs text-outline mt-1">Final submission of regional grant audits for RMD26-HQ.</p>
+<span class="mt-2 inline-block px-2 py-0.5 bg-error-container text-on-error-container text-[10px] font-bold rounded">HIGH PRIORITY</span>
+</div>
+</div>
+<div class="p-4 rounded-lg flex items-start gap-4">
+<div class="flex-shrink-0 text-center">
+<p class="text-xs font-bold text-secondary uppercase">Nov</p>
+<p class="text-2xl font-black text-on-surface leading-none">02</p>
+</div>
+<div>
+<h6 class="text-sm font-bold text-on-surface">Pacific-Basin Proposal Window</h6>
+<p class="text-xs text-outline mt-1">Opening for Tier 2 infrastructure development applications.</p>
+<span class="mt-2 inline-block px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold rounded">UPCOMING</span>
+</div>
+</div>
+<div class="p-4 rounded-lg flex items-start gap-4">
+<div class="flex-shrink-0 text-center">
+<p class="text-xs font-bold text-on-tertiary-container uppercase">Nov</p>
+<p class="text-2xl font-black text-on-surface leading-none">15</p>
+</div>
+<div>
+<h6 class="text-sm font-bold text-on-surface">Quarterly Disbursal Cycle</h6>
+<p class="text-xs text-outline mt-1">Automated batch processing for approved healthcare grants.</p>
+<span class="mt-2 inline-block px-2 py-0.5 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded">ROUTINE</span>
+</div>
+</div>
+<div class="p-4 rounded-lg flex items-start gap-4 opacity-50">
+<div class="flex-shrink-0 text-center">
+<p class="text-xs font-bold text-outline uppercase">Dec</p>
+<p class="text-2xl font-black text-on-surface leading-none">01</p>
+</div>
+<div>
+<h6 class="text-sm font-bold text-on-surface">Agent Logic Update V4.2</h6>
+<p class="text-xs text-outline mt-1">Scheduled maintenance and neural weights recalibration.</p>
+<span class="mt-2 inline-block px-2 py-0.5 bg-surface-container-high text-on-surface-variant text-[10px] font-bold rounded">MAINTENANCE</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 border border-outline-variant/30 py-3 rounded-lg text-sm font-bold text-[#131b2e] hover:bg-surface-container-low transition-colors">
+                            Manage Calendar
+                        </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FAB Suppression: On Dashboard, FAB might be "New Orchestration" -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary-container text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

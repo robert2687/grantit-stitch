@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agentic AI App Generator - App Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#000000",
+            "background-light": "#FFFFFF",
+            "background-dark": "#121212",
+            "text-light": "#111827",
+            "text-dark": "#F9FAFB",
+            "secondary-text-light": "#6B7280",
+            "secondary-text-dark": "#9CA3AF",
+            "border-light": "#E5E7EB",
+            "border-dark": "#374151"
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem", // 8px
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark antialiased">
+<div class="flex flex-col h-screen">
+<header class="p-6 border-b border-border-light dark:border-border-dark">
+<div class="flex justify-between items-center">
+<div>
+<h1 class="text-xl font-bold text-text-light dark:text-text-dark">App Preview</h1>
+<p class="text-sm text-secondary-text-light dark:text-secondary-text-dark mt-1">Your generated application is ready.</p>
+</div>
+<button aria-label="Toggle theme">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">
+          light_mode
+        </span>
+</button>
+</div>
+</header>
+<main class="flex-grow flex flex-col p-6 overflow-y-auto">
+<div class="w-full flex-grow bg-border-light dark:bg-border-dark rounded-lg flex items-center justify-center">
+<div class="text-center text-secondary-text-light dark:text-secondary-text-dark">
+<span class="material-symbols-outlined text-5xl">
+          view_in_ar
+        </span>
+<p class="mt-2 font-medium">Interactive App Preview</p>
+</div>
+</div>
+</main>
+<footer class="p-6 border-t border-border-light dark:border-border-dark space-y-4">
+<div class="flex space-x-4">
+<button class="flex-1 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 text-text-light dark:text-text-dark font-medium py-3 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined mb-1">download</span>
+        Code
+      </button>
+<button class="flex-1 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 text-text-light dark:text-text-dark font-medium py-3 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined mb-1">share</span>
+        Share
+      </button>
+</div>
+<button class="w-full bg-primary text-white font-medium py-3 px-6 rounded-lg shadow-sm hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark transition-opacity">
+      Deploy App
+    </button>
+</footer>
+</div>
+
+</body></html>

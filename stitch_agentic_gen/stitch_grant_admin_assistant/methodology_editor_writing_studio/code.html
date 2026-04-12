@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Methodology Editor | The Sovereign Architect</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#565e74",
+                        "surface-dim": "#dcd9db",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-background": "#1b1b1d",
+                        "primary-container": "#131b2e",
+                        "tertiary-fixed": "#6ffbbe",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-container": "#7c839b",
+                        "inverse-primary": "#bec6e0",
+                        "inverse-on-surface": "#f3f0f2",
+                        "secondary": "#0058be",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-secondary-fixed-variant": "#004395",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "secondary-container": "#2170e4",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1b1b1d",
+                        "outline-variant": "#c6c6cd",
+                        "inverse-surface": "#303032",
+                        "surface-variant": "#e4e2e4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary-fixed": "#001a42",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#fefcff",
+                        "primary": "#000000",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-container-high": "#eae7e9",
+                        "outline": "#76777d",
+                        "surface-container-low": "#f6f3f5",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "surface-container": "#f0edef",
+                        "surface-bright": "#fcf8fa",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#002113",
+                        "background": "#fcf8fa",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-tertiary-container": "#009668",
+                        "surface": "#fcf8fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .editorial-shadow {
+            box-shadow: 0 12px 40px rgba(19, 27, 46, 0.06);
+        }
+        .zebra-row:nth-child(even) {
+            background-color: #f6f3f5; /* surface-container-low */
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-hidden h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center px-8 h-16 w-full z-30">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 font-headline">The Sovereign Architect</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 font-headline font-semibold tracking-tight transition-colors" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 font-headline font-semibold tracking-tight transition-colors" href="#">Portfolio</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 font-headline font-semibold tracking-tight transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<input class="bg-surface-container-low border-none rounded-lg px-4 py-1.5 text-sm focus:ring-1 focus:ring-secondary w-64 transition-all" placeholder="Search proposals..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1.5 text-outline text-lg">search</span>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors">settings</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-primary-container">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a professional woman with a clean minimal aesthetic in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAXb0VzOsXWwT2xAC8r9dKoV95_4jedc9dMRL-5oa9aAOddBwfjBOukpdDS0GL5EUeYXdzYW_CmoBJX8fyR7zlO6ZPgKBMHhbCBkuFu1KKX9WwYFjKBjpBUP59FwqyBNZ3hnUq54tDD5XmaVvCXXvgA6rmeGzQ1RmbjwB4Kes0TQuSIoL88tJMa6Gne_Lg-A0YooyWCuyLuSt5km8HSZr3JywdkWJqnEU9UcyhU-v4cZV0eHEwI5cL9EKNqKs5Yd3o6v6ftDt_0oM"/>
+</div>
+<button class="bg-primary-container text-white px-5 py-2 text-sm font-headline font-bold rounded-lg hover:opacity-90 transition-all scale-98 duration-200 ease-in-out">Submit Proposal</button>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-slate-50 dark:bg-slate-950 h-screen w-64 border-r border-slate-100 dark:border-slate-800 flex flex-col h-full py-6 px-4 shrink-0 z-20">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-sm leading-tight uppercase tracking-widest text-slate-900">Global Health Initiative</h3>
+<p class="text-[10px] text-outline font-bold tracking-widest uppercase">Grant ID: GH-2024-089</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-200 font-label text-sm tracking-wide uppercase font-bold" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-200 font-label text-sm tracking-wide uppercase font-bold" href="#">
+<span class="material-symbols-outlined text-xl">payments</span>
+<span>Budget Builder</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-50 rounded-lg transition-all duration-200 font-label text-sm tracking-wide uppercase font-bold" href="#">
+<span class="material-symbols-outlined text-xl">architecture</span>
+<span>Methodology</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-200 font-label text-sm tracking-wide uppercase font-bold" href="#">
+<span class="material-symbols-outlined text-xl">fact_check</span>
+<span>Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-200 font-label text-sm tracking-wide uppercase font-bold" href="#">
+<span class="material-symbols-outlined text-xl">rate_review</span>
+<span>Review</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-slate-100 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-200 font-label text-sm tracking-wide uppercase font-bold" href="#">
+<span class="material-symbols-outlined text-xl">help</span>
+<span>Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-200 font-label text-sm tracking-wide uppercase font-bold" href="#">
+<span class="material-symbols-outlined text-xl">archive</span>
+<span>Archive</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex overflow-hidden bg-surface">
+<!-- Project Structure Tree (Left Inset) -->
+<div class="w-72 bg-surface-container-low border-r border-outline-variant/15 flex flex-col shrink-0">
+<div class="p-6 border-b border-outline-variant/15">
+<h4 class="text-[0.6875rem] font-bold tracking-[0.05em] uppercase text-outline mb-4">Project Structure</h4>
+<button class="w-full py-2 bg-surface-container-highest rounded border border-transparent hover:border-outline-variant transition-colors flex items-center justify-center gap-2 text-xs font-bold text-on-surface">
+<span class="material-symbols-outlined text-sm">add</span> New Section
+                    </button>
+</div>
+<div class="flex-1 overflow-y-auto p-4">
+<ul class="space-y-1">
+<li>
+<div class="flex items-center gap-2 p-2 rounded hover:bg-surface-container-high cursor-pointer text-sm">
+<span class="material-symbols-outlined text-lg text-outline">expand_more</span>
+<span class="material-symbols-outlined text-lg text-secondary">description</span>
+<span class="font-medium">1. Introduction</span>
+</div>
+</li>
+<li>
+<div class="flex items-center gap-2 p-2 rounded bg-surface-container-highest text-sm font-bold border-l-2 border-primary-container">
+<span class="material-symbols-outlined text-lg text-primary">expand_more</span>
+<span class="material-symbols-outlined text-lg text-primary">biotech</span>
+<span>2. Methodology</span>
+</div>
+<ul class="ml-8 mt-1 space-y-1">
+<li class="p-2 text-xs text-on-surface-variant hover:text-primary cursor-pointer border-l border-outline-variant/30 pl-4">2.1 Research Design</li>
+<li class="p-2 text-xs text-primary font-bold border-l-2 border-primary pl-3 bg-surface">2.2 Data Collection</li>
+<li class="p-2 text-xs text-on-surface-variant hover:text-primary cursor-pointer border-l border-outline-variant/30 pl-4">2.3 Statistical Analysis</li>
+</ul>
+</li>
+<li>
+<div class="flex items-center gap-2 p-2 rounded hover:bg-surface-container-high cursor-pointer text-sm">
+<span class="material-symbols-outlined text-lg text-outline">chevron_right</span>
+<span class="material-symbols-outlined text-lg text-outline">group</span>
+<span class="font-medium text-on-surface-variant">3. Personnel</span>
+</div>
+</li>
+<li>
+<div class="flex items-center gap-2 p-2 rounded hover:bg-surface-container-high cursor-pointer text-sm">
+<span class="material-symbols-outlined text-lg text-outline">chevron_right</span>
+<span class="material-symbols-outlined text-lg text-outline">event_available</span>
+<span class="font-medium text-on-surface-variant">4. Timeline</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Methodology Editor Canvas -->
+<div class="flex-1 flex flex-col bg-surface-container-lowest overflow-hidden">
+<!-- Editor Toolbar -->
+<div class="h-14 border-b border-outline-variant/15 flex items-center px-6 gap-6 shrink-0 bg-white">
+<div class="flex items-center gap-1">
+<button class="p-1.5 hover:bg-surface-container-low rounded text-on-surface-variant"><span class="material-symbols-outlined text-xl">format_bold</span></button>
+<button class="p-1.5 hover:bg-surface-container-low rounded text-on-surface-variant"><span class="material-symbols-outlined text-xl">format_italic</span></button>
+<button class="p-1.5 hover:bg-surface-container-low rounded text-on-surface-variant"><span class="material-symbols-outlined text-xl">format_underlined</span></button>
+</div>
+<div class="w-px h-6 bg-outline-variant/30"></div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 hover:bg-surface-container-low rounded text-on-surface-variant"><span class="material-symbols-outlined text-xl">format_align_left</span></button>
+<button class="p-1.5 hover:bg-surface-container-low rounded text-on-surface-variant"><span class="material-symbols-outlined text-xl">format_align_center</span></button>
+<button class="p-1.5 hover:bg-surface-container-low rounded text-on-surface-variant"><span class="material-symbols-outlined text-xl">format_list_bulleted</span></button>
+</div>
+<div class="w-px h-6 bg-outline-variant/30"></div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-outline uppercase tracking-wider">Style</span>
+<select class="bg-surface-container-low border-none rounded py-1 text-xs font-medium focus:ring-0">
+<option>Heading 2</option>
+<option>Body Text</option>
+<option>Technical Block</option>
+</select>
+</div>
+<div class="ml-auto flex items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-tertiary-container"></div>
+<span class="text-[10px] font-bold text-on-tertiary-container uppercase tracking-widest">Auto-saved 2m ago</span>
+</div>
+<button class="text-xs font-bold text-secondary hover:underline">Export PDF</button>
+</div>
+</div>
+<!-- Main Writing Surface -->
+<div class="flex-1 overflow-y-auto p-12 md:p-20">
+<div class="max-w-3xl mx-auto">
+<h1 class="font-headline text-[1.75rem] font-extrabold text-on-surface tracking-tight mb-8">2.2 Data Collection Strategy</h1>
+<div class="space-y-6 text-on-surface-variant leading-relaxed font-body text-sm md:text-base">
+<p>
+                                The proposed data collection methodology utilizes a multi-layered sensor network integrated with the Global Health Initiative (GHI) central repository. To ensure data sovereignty and high-fidelity transmission, we will deploy Phase 1 edge-computing nodes across the primary study sites in Southeast Asia and Sub-Saharan Africa.
+                            </p>
+<p class="border-l-4 border-secondary-fixed bg-surface-container-low p-6 rounded-r-xl italic">
+                                "The integration of real-time epidemiological tracking with local community engagement portals represents a paradigm shift in grant-funded public health research."
+                            </p>
+<p>
+                                Each node will utilize a proprietary AES-256 encrypted tunnel for metadata transfer, while raw observational data will be cached locally for verification against distributed ledger entries. This ensures that the <span class="bg-primary-fixed text-on-primary-fixed px-1 rounded">Methodological Integrity</span> of the study remains uncompromised by intermittent connectivity issues common in rural field environments.
+                            </p>
+<h3 class="font-headline text-lg font-bold text-on-surface mt-10 mb-4">2.2.1 Quantitative Instrumentation</h3>
+<p>
+                                Primary instrumentation will consist of the GHI-V3 environmental scanners. These devices have been calibrated to ISO 9001 standards and provide a 99.8% accuracy rate for atmospheric pathogen detection. The sampling frequency will be set to 15-minute intervals, providing a granular longitudinal dataset for the Sovereign Architect analytics engine.
+                            </p>
+<div class="mt-8 overflow-hidden rounded-xl border border-outline-variant/15">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant/15">
+<tr>
+<th class="p-4 text-[10px] font-bold uppercase tracking-[0.1em] text-outline">Sensor Type</th>
+<th class="p-4 text-[10px] font-bold uppercase tracking-[0.1em] text-outline">Deployment Zone</th>
+<th class="p-4 text-[10px] font-bold uppercase tracking-[0.1em] text-outline">Frequency</th>
+</tr>
+</thead>
+<tbody class="text-xs">
+<tr class="zebra-row">
+<td class="p-4 font-bold text-on-surface">Pathogen Sensor V3</td>
+<td class="p-4">High-Traffic Urban</td>
+<td class="p-4">96 samples/day</td>
+</tr>
+<tr class="zebra-row">
+<td class="p-4 font-bold text-on-surface">Ambient Humidity (Digital)</td>
+<td class="p-4">Rural Field Sites</td>
+<td class="p-4">24 samples/day</td>
+</tr>
+<tr class="zebra-row">
+<td class="p-4 font-bold text-on-surface">HEPA Bio-Capture Unit</td>
+<td class="p-4">Central Clinics</td>
+<td class="p-4">Continuous</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Assistant Sidebar -->
+<div class="w-80 bg-surface-container border-l border-outline-variant/15 flex flex-col shrink-0">
+<div class="p-6 border-b border-outline-variant/15 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="text-xs font-bold tracking-[0.05em] uppercase text-on-surface">AI Architect</h4>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-[10px] font-bold text-on-secondary-fixed-variant uppercase">Beta</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- Compliance Check Card -->
+<div class="bg-white p-4 rounded-xl editorial-shadow border border-outline-variant/10">
+<div class="flex items-center justify-between mb-3">
+<span class="text-[10px] font-bold text-outline uppercase tracking-widest">Compliance Status</span>
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">verified</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden mb-3">
+<div class="h-full bg-on-tertiary-container w-[88%]"></div>
+</div>
+<p class="text-xs text-on-surface-variant mb-4">Section 2.2 matches 88% of GHI technical requirements.</p>
+<div class="p-3 bg-error-container/30 border border-error-container rounded-lg">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-on-error-container text-base">warning</span>
+<div class="text-[11px] leading-tight text-on-error-container">
+<strong>Missing Detail:</strong> Proposal requires explicit mention of IRB approval for field data nodes.
+                                </div>
+</div>
+</div>
+</div>
+<!-- Suggestion Card -->
+<div class="bg-primary-container p-4 rounded-xl text-white editorial-shadow relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-white/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+<span class="text-[10px] font-bold opacity-60 uppercase tracking-widest mb-2 block">AI Drafting Suggestion</span>
+<p class="text-xs leading-relaxed mb-4">Based on your previous grants, I recommend adding a subsection on "Cross-Border Data Interoperability" to strengthen the Methodology.</p>
+<button class="w-full py-2 bg-on-primary-fixed-variant rounded text-white text-[10px] font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all">Generate Draft Section</button>
+</div>
+<!-- Improvement Check -->
+<div class="bg-white p-4 rounded-xl editorial-shadow border border-outline-variant/10">
+<h5 class="text-xs font-bold text-on-surface mb-3">Refine Tone</h5>
+<div class="space-y-3">
+<div class="p-2 border border-outline-variant/20 rounded-lg hover:border-secondary cursor-pointer transition-colors group">
+<p class="text-[11px] text-on-surface-variant group-hover:text-on-surface">Make it more technical</p>
+</div>
+<div class="p-2 border border-outline-variant/20 rounded-lg hover:border-secondary cursor-pointer transition-colors group">
+<p class="text-[11px] text-on-surface-variant group-hover:text-on-surface">Simplify for stakeholders</p>
+</div>
+<div class="p-2 border border-outline-variant/20 rounded-lg hover:border-secondary cursor-pointer transition-colors group">
+<p class="text-[11px] text-on-surface-variant group-hover:text-on-surface">Check for active voice</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 glass-panel border-t border-outline-variant/15">
+<div class="relative">
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-3 text-xs focus:ring-1 focus:ring-secondary min-h-[80px] resize-none" placeholder="Ask the AI Assistant..."></textarea>
+<button class="absolute bottom-3 right-3 h-8 w-8 bg-primary-container rounded-lg flex items-center justify-center text-white hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-base">send</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

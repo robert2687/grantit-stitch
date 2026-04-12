@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Architect - Profile Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#f3f0f2",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#45464d",
+                      "on-secondary-fixed-variant": "#004395",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#dcd9db",
+                      "surface-container-highest": "#e4e2e4",
+                      "on-primary-fixed": "#131b2e",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "primary-fixed": "#dae2fd",
+                      "inverse-surface": "#303032",
+                      "on-primary-container": "#7c839b",
+                      "surface": "#fcf8fa",
+                      "primary-fixed-dim": "#bec6e0",
+                      "surface-container-low": "#f6f3f5",
+                      "surface-bright": "#fcf8fa",
+                      "tertiary": "#000000",
+                      "error": "#ba1a1a",
+                      "secondary": "#0058be",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#eae7e9",
+                      "outline-variant": "#c6c6cd",
+                      "inverse-primary": "#bec6e0",
+                      "tertiary-fixed": "#6ffbbe",
+                      "on-secondary-fixed": "#001a42",
+                      "on-tertiary": "#ffffff",
+                      "secondary-container": "#2170e4",
+                      "primary-container": "#131b2e",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "surface-container": "#f0edef",
+                      "primary": "#000000",
+                      "background": "#fcf8fa",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#1b1b1d",
+                      "surface-tint": "#565e74",
+                      "outline": "#76777d",
+                      "on-secondary-container": "#fefcff",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#009668",
+                      "secondary-fixed": "#d8e2ff",
+                      "surface-variant": "#e4e2e4",
+                      "on-surface": "#1b1b1d",
+                      "tertiary-container": "#002113",
+                      "on-tertiary-fixed": "#002113"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .tonal-shift-only { border: none !important; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<!-- Sidebar Navigation Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 bg-[#f6f3f5] dark:bg-slate-900 h-screen w-64 border-r-0 z-50">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="architecture">architecture</span>
+</div>
+<div>
+<div class="text-lg font-bold text-[#1b1b1d] dark:text-white leading-tight">Sovereign Architect</div>
+<div class="text-[10px] uppercase tracking-widest text-on-primary-container font-semibold">Global Grant Management</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-[#e4e2e4]/50 dark:hover:bg-slate-800/50 font-['Manrope'] font-semibold tracking-tight text-sm transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span> Intelligence
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-[#e4e2e4]/50 dark:hover:bg-slate-800/50 font-['Manrope'] font-semibold tracking-tight text-sm transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span> Grants
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-[#e4e2e4]/50 dark:hover:bg-slate-800/50 font-['Manrope'] font-semibold tracking-tight text-sm transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span> Strategy
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-[#e4e2e4]/50 dark:hover:bg-slate-800/50 font-['Manrope'] font-semibold tracking-tight text-sm transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span> Compliance
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#e4e2e4] dark:bg-slate-800 text-[#131b2e] dark:text-white rounded-r-full font-['Manrope'] font-semibold tracking-tight text-sm transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span> Settings
+            </a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full py-3 bg-primary-container text-on-primary font-bold rounded-lg flex items-center justify-center gap-2 scale-98 active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span> New Mission
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- Top Navbar Shell -->
+<header class="flex justify-between items-center px-8 w-full h-16 sticky top-0 z-40 bg-[#fcf8fa]/80 dark:bg-slate-950/80 backdrop-blur-xl">
+<div class="flex items-center gap-8">
+<div class="flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-['Inter'] text-sm tracking-wide hover:text-[#131b2e] dark:hover:text-white transition-all cursor-pointer" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 font-['Inter'] text-sm tracking-wide hover:text-[#131b2e] dark:hover:text-white transition-all cursor-pointer" href="#">Active Grants</a>
+<a class="text-slate-500 dark:text-slate-400 font-['Inter'] text-sm tracking-wide hover:text-[#131b2e] dark:hover:text-white transition-all cursor-pointer" href="#">Audit Trail</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined text-slate-500 hover:text-[#131b2e] cursor-pointer" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-slate-500 hover:text-[#131b2e] cursor-pointer" data-icon="shield">shield</span>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/20">
+<div class="text-right">
+<p class="text-xs font-bold leading-none">Lead Architect</p>
+<p class="text-[10px] text-on-primary-container">RMD26 Online</p>
+</div>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant/30" data-alt="professional portrait of a middle-aged male architect with glasses in a modern office setting, soft dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsFfymDLoGzD4DrRY1-xUUv2GMK6CDbmJnR5moIYumg9-RCd_1uORg3QEQie4MjNRK1u14_h-jhCo7MFI6ke9jVFKn9QLgTgnMWEXxVOmvLjvtA68-6IrE4MMFrAVJbHjN9w4SvrarS6AZ1OZnFLHWP6qEwRH-jY2IBjLKR11Non4grfcm_UQoMaROiBDmfOM15C_C0MZAGMAD06om79CHKEj5mMxA3XOVlObBEA2k_PgzPQJGNdqzUO4rdsl072Vs_RWCrtFaEU0"/>
+</div>
+</div>
+</header>
+<!-- Settings Content -->
+<div class="max-w-4xl mx-auto py-12 px-8">
+<div class="mb-12">
+<h1 class="text-5xl font-extrabold tracking-tight text-on-surface mb-2">Profile Settings</h1>
+<p class="text-on-primary-container text-lg">Manage your organizational identity, security parameters, and regional preferences.</p>
+</div>
+<!-- Profile Identity Section -->
+<section class="bg-surface-container-lowest rounded-xl p-10 mb-8 border border-outline-variant/10 shadow-[0_12px_40px_rgba(19,27,46,0.03)]">
+<div class="flex items-start justify-between mb-8">
+<div>
+<h2 class="text-xl font-bold tracking-tight mb-1">Architect Identity</h2>
+<p class="text-sm text-on-primary-container uppercase tracking-widest font-medium">Personal Information</p>
+</div>
+<div class="relative group">
+<img class="w-24 h-24 rounded-full border-4 border-surface-container-low" data-alt="close up professional male headshot for user profile with clean lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBowBuItHs9UFFAroOo7TBQuIqaBZjGc65ItqwH0WSmcBEPCZei6hKX-a-UGgp34bZ02QxFr8rYvMzzpOuKsupwi1Azcv2DxEDLBVbfNXHE5luHQzxg3YSh-JIkDLnFFeaUz62cWZzxfRaApsAB90zDYHwb1-cWBygspYmV0QxoQfMgUtZ_xgKGFZUkGqpIPjokoDSBAxjo3OWKW1syM4yb7DsHbejie6nwmqpsLLnWWf7bcaxkWNBXszS9DVblwtXcqMzqYGmrLE4"/>
+<button class="absolute bottom-0 right-0 bg-primary-container text-on-primary p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-x-12 gap-y-8">
+<div class="space-y-2">
+<label class="block text-[11px] font-bold text-on-primary-container tracking-wider uppercase">Full Name</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant/20 px-0 py-3 text-on-surface font-semibold focus:border-secondary focus:ring-0 transition-all outline-none" type="text" value="RMD26"/>
+</div>
+<div class="space-y-2">
+<label class="block text-[11px] font-bold text-on-primary-container tracking-wider uppercase">Lead Role</label>
+<input class="w-full bg-surface-container-low/50 border-b-2 border-outline-variant/10 px-0 py-3 text-on-primary-container font-semibold cursor-not-allowed outline-none" readonly="" type="text" value="Lead Architect"/>
+</div>
+<div class="space-y-2 col-span-2">
+<label class="block text-[11px] font-bold text-on-primary-container tracking-wider uppercase">Email Address</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant/20 px-0 py-3 text-on-surface font-semibold focus:border-secondary focus:ring-0 transition-all outline-none" type="email" value="architect.lead@sovereign.org"/>
+</div>
+</div>
+</section>
+<!-- Security Section -->
+<section class="bg-surface-container-lowest rounded-xl p-10 mb-8 border border-outline-variant/10 shadow-[0_12px_40px_rgba(19,27,46,0.03)]">
+<div class="mb-8">
+<h2 class="text-xl font-bold tracking-tight mb-1">Security Protocols</h2>
+<p class="text-sm text-on-primary-container uppercase tracking-widest font-medium">Access Control</p>
+</div>
+<div class="space-y-8">
+<div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary-container/10 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="lock_open">lock_open</span>
+</div>
+<div>
+<p class="font-bold">Password Management</p>
+<p class="text-xs text-on-primary-container">Last updated 14 days ago</p>
+</div>
+</div>
+<button class="px-4 py-2 text-xs font-bold border border-outline-variant rounded hover:bg-surface-container-highest transition-colors">UPDATE PASSWORD</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-tertiary-container/10 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<p class="font-bold">Two-Factor Authentication</p>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="w-2 h-2 bg-on-tertiary-container rounded-full"></span>
+<p class="text-[10px] text-on-tertiary-container font-bold uppercase tracking-tighter">Status: Active</p>
+</div>
+</div>
+</div>
+<button class="px-4 py-2 text-xs font-bold text-error border border-error/20 rounded hover:bg-error-container/20 transition-colors">DEACTIVATE</button>
+</div>
+</div>
+</section>
+<!-- Regional Settings Section -->
+<section class="bg-surface-container-lowest rounded-xl p-10 mb-12 border border-outline-variant/10 shadow-[0_12px_40px_rgba(19,27,46,0.03)]">
+<div class="mb-8">
+<h2 class="text-xl font-bold tracking-tight mb-1">Global Context</h2>
+<p class="text-sm text-on-primary-container uppercase tracking-widest font-medium">Localization Preferences</p>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="space-y-4">
+<label class="block text-[11px] font-bold text-on-primary-container tracking-wider uppercase">System Language</label>
+<select class="w-full bg-surface-container-low border-b-2 border-outline-variant/20 px-0 py-3 text-on-surface font-semibold focus:border-secondary transition-all outline-none appearance-none cursor-pointer">
+<option>English (United Kingdom)</option>
+<option>English (United States)</option>
+<option>Deutsch (Standard)</option>
+<option>Français (Paris)</option>
+</select>
+</div>
+<div class="space-y-4">
+<label class="block text-[11px] font-bold text-on-primary-container tracking-wider uppercase">Active Timezone</label>
+<select class="w-full bg-surface-container-low border-b-2 border-outline-variant/20 px-0 py-3 text-on-surface font-semibold focus:border-secondary transition-all outline-none appearance-none cursor-pointer">
+<option>(GMT+00:00) London, United Kingdom</option>
+<option>(GMT-05:00) New York, USA</option>
+<option>(GMT+01:00) Berlin, Germany</option>
+<option>(GMT+09:00) Tokyo, Japan</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Action Bar -->
+<div class="flex items-center justify-end gap-6 pt-6 border-t border-outline-variant/20">
+<button class="px-8 py-3 text-sm font-bold text-on-primary-container hover:text-on-surface transition-colors">Cancel Changes</button>
+<button class="px-10 py-3 bg-primary-container text-on-primary text-sm font-bold rounded shadow-[0_4px_14px_rgba(19,27,46,0.25)] hover:scale-105 active:scale-95 transition-all">Save Architect Profile</button>
+</div>
+</div>
+</main>
+</body></html>

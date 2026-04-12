@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alerts &amp; Notifications | RMD26 Grant Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#7c839b",
+                        "on-surface": "#1b1b1d",
+                        "primary-container": "#131b2e",
+                        "surface-container-low": "#f6f3f5",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e4e2e4",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-tertiary-fixed": "#002113",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#2170e4",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-container": "#fefcff",
+                        "outline": "#76777d",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-tint": "#565e74",
+                        "on-background": "#1b1b1d",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-dim": "#dcd9db",
+                        "surface-variant": "#e4e2e4",
+                        "tertiary": "#000000",
+                        "surface-container": "#f0edef",
+                        "surface-bright": "#fcf8fa",
+                        "on-tertiary-container": "#009668",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary-fixed": "#001a42",
+                        "inverse-surface": "#303032",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-primary": "#ffffff",
+                        "surface": "#fcf8fa",
+                        "background": "#fcf8fa",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-container-high": "#eae7e9",
+                        "on-secondary-fixed-variant": "#004395",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#002113",
+                        "primary-fixed": "#dae2fd",
+                        "primary": "#000000",
+                        "inverse-on-surface": "#f3f0f2",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "outline-variant": "#c6c6cd",
+                        "secondary": "#0058be"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen w-64 bg-slate-100 dark:bg-slate-900 border-r-0 fixed left-0 top-0">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h2 class="font-['Manrope'] font-black text-slate-900 dark:text-slate-50 tracking-tight">RMD26</h2>
+<p class="font-['Inter'] body-md uppercase tracking-widest text-[10px] text-slate-500">Global Mission Control</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-medium font-['Inter'] body-md uppercase tracking-widest text-[11px]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-medium font-['Inter'] body-md uppercase tracking-widest text-[11px]" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Grants</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-medium font-['Inter'] body-md uppercase tracking-widest text-[11px]" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span>Intelligence</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-medium font-['Inter'] body-md uppercase tracking-widest text-[11px]" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-medium font-['Inter'] body-md uppercase tracking-widest text-[11px]" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="px-4 py-6 space-y-4">
+<button class="w-full py-3 bg-primary-container text-white rounded-lg font-bold text-sm tracking-wide hover:opacity-90 transition-all">
+                New Analysis
+            </button>
+<div class="pt-4 border-t border-slate-200/50">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-900 transition-colors text-[11px] uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-900 transition-colors text-[11px] uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="archive">archive</span>
+<span>Archive</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="flex-1 flex flex-col md:ml-64 h-screen">
+<!-- TopNavBar Component -->
+<header class="flex justify-between items-center w-full px-8 h-16 bg-slate-50 dark:bg-slate-950 z-10 sticky top-0">
+<div class="flex items-center gap-8 flex-1">
+<h1 class="font-['Manrope'] headline-md text-slate-900 tracking-tight text-lg font-bold">RMD26 Grant Intelligence</h1>
+<div class="max-w-md w-full relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-900 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary-container transition-all" placeholder="Search signals and archives..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors relative">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-50" data-icon="notifications">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 bg-secondary-container rounded-full border-2 border-slate-50"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-50" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<img alt="Administrator profile avatar" class="w-8 h-8 rounded-full object-cover ring-2 ring-slate-100" data-alt="Close-up professional portrait of a senior executive in a minimalist studio setting with neutral gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTPLoRFricFzR-86J2mOyBWwpFTRe4T-NrYkXDVAGjJNkqzzl-aige3fApuel9JgYdK_8-KePjpUo1b_CF6rQrExyFuJQitQ3qVY-HbgMDYL8erKXyept-AAj54jd-8fPF8VEtw_x9DtbgnPG1IA_PAeN3zyt02YDqvGL6a2hXxBVQVADPMgJFv1T1c_XSLvBTCxRmhnK4CVM0-qLDnXmTKQ1ADbq_-5H-EFZIOUt3VB9ssyAXXrogFP5vX3orxm5RpOu5J41At30"/>
+</div>
+</header>
+<!-- Notification Center Content -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left: Notification List -->
+<div class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- Content Header -->
+<div class="px-8 pt-8 pb-4 flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight font-headline text-on-surface">Alerts &amp; Notifications</h2>
+<p class="text-on-surface-variant text-sm mt-1">Real-time intelligence feed and agent status updates.</p>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded text-sm font-semibold bg-surface-container-high hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm">done_all</span>
+                        Mark all as read
+                    </button>
+</div>
+<!-- Filters -->
+<div class="px-8 py-4 flex gap-6 overflow-x-auto no-scrollbar border-b border-surface-container-high">
+<button class="text-sm font-bold text-on-surface border-b-2 border-primary-container pb-2 shrink-0">All</button>
+<button class="text-sm font-medium text-on-surface-variant hover:text-on-surface pb-2 shrink-0 transition-colors">Unread</button>
+<button class="text-sm font-medium text-on-surface-variant hover:text-on-surface pb-2 shrink-0 transition-colors">Deadlines</button>
+<button class="text-sm font-medium text-on-surface-variant hover:text-on-surface pb-2 shrink-0 transition-colors">Agent Status</button>
+<button class="text-sm font-medium text-on-surface-variant hover:text-on-surface pb-2 shrink-0 transition-colors">System</button>
+</div>
+<!-- Notifications Scroll Area -->
+<div class="flex-1 overflow-y-auto px-8 py-6 space-y-3">
+<!-- Notification Card (Unread) -->
+<div class="bg-surface-container-lowest p-5 rounded-lg flex gap-4 transition-all border-l-4 border-secondary-container">
+<div class="w-10 h-10 shrink-0 bg-secondary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" data-icon="schedule" style="font-variation-settings: 'FILL' 1;">schedule</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-on-surface text-base">Deadline Approaching: Horizon 2024 Energy Grant</h3>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">2 hours ago</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 leading-relaxed">
+                                The final submission portal for the Horizon 2024 Green Energy Framework closes in 48 hours. Intelligence Agent Eval has flagged missing 'Environmental Impact' documentation.
+                            </p>
+<div class="mt-4 flex gap-3">
+<button class="px-3 py-1.5 bg-primary-container text-on-primary text-xs font-bold rounded">View Detail</button>
+<button class="px-3 py-1.5 text-on-surface-variant text-xs font-bold hover:bg-surface-container-high rounded transition-all">Dismiss</button>
+</div>
+</div>
+<div class="w-2 h-2 bg-secondary-container rounded-full mt-2"></div>
+</div>
+<!-- Notification Card -->
+<div class="bg-surface-container-low p-5 rounded-lg flex gap-4 transition-all opacity-80">
+<div class="w-10 h-10 shrink-0 bg-surface-container-highest rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="psychology">psychology</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-on-surface text-base">Agent 'Search' Found 4 New Opportunities</h3>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant px-2 py-1">5 hours ago</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 leading-relaxed">
+                                Intelligence gathering complete. Four high-confidence matches found for 'Biotech Research Cluster' across global databases.
+                            </p>
+<div class="mt-4 flex gap-3">
+<button class="px-3 py-1.5 bg-primary-container text-on-primary text-xs font-bold rounded">View Analysis</button>
+<button class="px-3 py-1.5 text-on-surface-variant text-xs font-bold hover:bg-surface-container-high rounded transition-all">Dismiss</button>
+</div>
+</div>
+</div>
+<!-- Notification Card -->
+<div class="bg-surface-container-low p-5 rounded-lg flex gap-4 transition-all border-l-4 border-on-tertiary-container">
+<div class="w-10 h-10 shrink-0 bg-tertiary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-on-surface text-base">Compliance Validation Successful</h3>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant px-2 py-1">Yesterday</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 leading-relaxed">
+                                The 'Sovereign Shield' compliance check for all active R&amp;D grants returned 0 critical warnings. All filings are within regional legal tolerances.
+                            </p>
+<div class="mt-4 flex gap-3">
+<button class="px-3 py-1.5 bg-primary-container text-on-primary text-xs font-bold rounded">Open Report</button>
+<button class="px-3 py-1.5 text-on-surface-variant text-xs font-bold hover:bg-surface-container-high rounded transition-all">Archive</button>
+</div>
+</div>
+</div>
+<!-- Notification Card -->
+<div class="bg-surface-container-low p-5 rounded-lg flex gap-4 transition-all">
+<div class="w-10 h-10 shrink-0 bg-error-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-error-container" data-icon="settings">settings</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-on-surface text-base">System Maintenance Notice</h3>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant px-2 py-1">2 days ago</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 leading-relaxed">
+                                Scheduled core database optimization on Sunday, 02:00 UTC. Intelligence agents will pause analysis for approximately 15 minutes.
+                            </p>
+<div class="mt-4 flex gap-3">
+<button class="px-3 py-1.5 text-on-surface-variant text-xs font-bold hover:bg-surface-container-high rounded transition-all">Dismiss</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar: Settings & Summary -->
+<aside class="w-80 border-l border-surface-container-high bg-surface-container-low p-8 hidden lg:block overflow-y-auto no-scrollbar">
+<div class="space-y-10">
+<!-- Agent Status Section -->
+<section>
+<h4 class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-6 flex items-center justify-between">
+                            Active Agents
+                            <span class="w-2 h-2 bg-on-tertiary-container rounded-full animate-pulse"></span>
+</h4>
+<div class="space-y-4">
+<!-- Agent Item -->
+<div class="bg-surface-container-lowest p-4 rounded flex items-center gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="travel_explore">travel_explore</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface">Search Agent</p>
+<p class="text-[10px] text-on-tertiary-container">Monitoring 48 feeds</p>
+</div>
+<div class="w-8 h-4 bg-surface-container-high rounded-full relative">
+<div class="absolute right-1 top-1 w-2 h-2 bg-on-tertiary-container rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded flex items-center gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="rate_review">rate_review</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface">Eval Agent</p>
+<p class="text-[10px] text-on-surface-variant">Idle</p>
+</div>
+<div class="w-8 h-4 bg-surface-container-high rounded-full relative">
+<div class="absolute left-1 top-1 w-2 h-2 bg-on-surface-variant opacity-30 rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded flex items-center gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="edit_note">edit_note</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-on-surface">Copywriter</p>
+<p class="text-[10px] text-on-tertiary-container">Drafting proposal #82</p>
+</div>
+<div class="w-8 h-4 bg-surface-container-high rounded-full relative">
+<div class="absolute right-1 top-1 w-2 h-2 bg-on-tertiary-container rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Subscription Summary -->
+<section>
+<h4 class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-6">Notification Preferences</h4>
+<div class="space-y-4">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-xs font-medium text-on-surface group-hover:text-primary-container transition-colors">Grant Deadlines</span>
+<input checked="" class="rounded text-primary-container focus:ring-primary-container w-4 h-4" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-xs font-medium text-on-surface group-hover:text-primary-container transition-colors">Compliance Alerts</span>
+<input checked="" class="rounded text-primary-container focus:ring-primary-container w-4 h-4" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-xs font-medium text-on-surface group-hover:text-primary-container transition-colors">Intelligence Reports</span>
+<input checked="" class="rounded text-primary-container focus:ring-primary-container w-4 h-4" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-xs font-medium text-on-surface group-hover:text-primary-container transition-colors">System Updates</span>
+<input class="rounded text-primary-container focus:ring-primary-container w-4 h-4" type="checkbox"/>
+</label>
+</div>
+<button class="w-full mt-8 py-2 text-xs font-bold border border-outline-variant hover:bg-surface-container-highest transition-all rounded">
+                            Manage All Settings
+                        </button>
+</section>
+<!-- Data Viz (Ambient) -->
+<section class="bg-primary-container p-6 rounded-lg text-on-primary">
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-4">Notification Volume</p>
+<div class="h-16 flex items-end gap-1">
+<div class="bg-secondary-fixed-dim/40 w-full h-[40%] rounded-t-sm"></div>
+<div class="bg-secondary-fixed-dim/40 w-full h-[60%] rounded-t-sm"></div>
+<div class="bg-secondary-fixed-dim/40 w-full h-[30%] rounded-t-sm"></div>
+<div class="bg-secondary-fixed-dim/40 w-full h-[90%] rounded-t-sm"></div>
+<div class="bg-secondary-fixed-dim w-full h-[50%] rounded-t-sm"></div>
+<div class="bg-secondary-fixed-dim w-full h-[70%] rounded-t-sm"></div>
+<div class="bg-secondary-fixed-dim w-full h-[85%] rounded-t-sm"></div>
+</div>
+<p class="text-[10px] mt-4 opacity-70 italic text-center">Alert frequency +12% this week</p>
+</section>
+</div>
+</aside>
+</div>
+</main>
+</body></html>

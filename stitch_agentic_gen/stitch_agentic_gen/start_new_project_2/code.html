@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create New Application</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13a4ec",
+              "secondary": "#9013FE",
+              "background-light": "#F8F9FA",
+              "background-dark": "#1A1A1A",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body>
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display group/design-root overflow-x-hidden">
+<!-- Main Content Area -->
+<main class="flex-1 pb-28">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-gray-800 dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-3xl">arrow_back</span>
+</div>
+<h1 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Create New Application</h1>
+<div class="flex size-12 shrink-0 items-center"></div> <!-- Spacer -->
+</div>
+<div class="px-4 py-3 space-y-6">
+<!-- Project Name TextField -->
+<label class="flex flex-col">
+<p class="text-gray-800 dark:text-white text-base font-medium leading-normal pb-2">Project Name</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-0 border-gray-300 dark:border-gray-700 bg-white dark:bg-black/20 focus:border-primary h-14 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal" placeholder="e.g., Social Fitness Tracker" value=""/>
+</label>
+<!-- App Description TextField -->
+<label class="flex flex-col">
+<p class="text-gray-800 dark:text-white text-base font-medium leading-normal pb-2">What should your app do?</p>
+<textarea class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-0 border-gray-300 dark:border-gray-700 bg-white dark:bg-black/20 focus:border-primary min-h-36 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal" placeholder="Describe your app in detail. For example: 'An app that tracks daily workouts, allows users to add friends, and share their progress on a social feed...'"></textarea>
+</label>
+<!-- Target Platform Section -->
+<div>
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2 pt-4">Target Platform</h3>
+<div class="flex gap-3 pt-2 flex-wrap">
+<div class="flex h-10 cursor-pointer shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary pl-4 pr-4 border-2 border-primary">
+<p class="text-white text-sm font-medium leading-normal">iOS</p>
+</div>
+<div class="flex h-10 cursor-pointer shrink-0 items-center justify-center gap-x-2 rounded-lg bg-transparent pl-4 pr-4 border-2 border-gray-300 dark:border-gray-700">
+<p class="text-gray-800 dark:text-white text-sm font-medium leading-normal">Android</p>
+</div>
+<div class="flex h-10 cursor-pointer shrink-0 items-center justify-center gap-x-2 rounded-lg bg-transparent pl-4 pr-4 border-2 border-gray-300 dark:border-gray-700">
+<p class="text-gray-800 dark:text-white text-sm font-medium leading-normal">Web App</p>
+</div>
+</div>
+</div>
+<!-- Advanced Options (Accordion) -->
+<div>
+<details class="group">
+<summary class="flex cursor-pointer items-center justify-between py-4 list-none">
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Specify Tech Stack (Optional)</h3>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400 transition-transform duration-200 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pb-4">
+<div class="flex cursor-pointer items-center justify-center gap-2 rounded-lg p-3 border-2 border-secondary bg-secondary/10">
+<p class="font-medium text-sm text-secondary">React Native</p>
+</div>
+<div class="flex cursor-pointer items-center justify-center gap-2 rounded-lg p-3 border-2 border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary">
+<p class="font-medium text-sm text-gray-800 dark:text-white">Swift</p>
+</div>
+<div class="flex cursor-pointer items-center justify-center gap-2 rounded-lg p-3 border-2 border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary">
+<p class="font-medium text-sm text-gray-800 dark:text-white">Flutter</p>
+</div>
+<div class="flex cursor-pointer items-center justify-center gap-2 rounded-lg p-3 border-2 border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary">
+<p class="font-medium text-sm text-gray-800 dark:text-white">Kotlin</p>
+</div>
+<div class="flex cursor-pointer items-center justify-center gap-2 rounded-lg p-3 border-2 border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary">
+<p class="font-medium text-sm text-gray-800 dark:text-white">React</p>
+</div>
+<div class="flex cursor-pointer items-center justify-center gap-2 rounded-lg p-3 border-2 border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary">
+<p class="font-medium text-sm text-gray-800 dark:text-white">Vue.js</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Button -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800">
+<button class="flex h-14 w-full items-center justify-center gap-x-2 rounded-xl bg-primary px-6 text-base font-bold text-white shadow-lg transition-colors hover:bg-primary/90 disabled:bg-gray-400 dark:disabled:bg-gray-600">Generate App</button>
+</div>
+</div>
+</body></html>

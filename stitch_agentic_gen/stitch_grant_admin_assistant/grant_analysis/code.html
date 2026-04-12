@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grant Explorer - RMD26 Deep Dive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f0edef",
+                        "on-secondary-container": "#fefcff",
+                        "secondary": "#0058be",
+                        "surface-container-highest": "#e4e2e4",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-tint": "#565e74",
+                        "outline-variant": "#c6c6cd",
+                        "on-surface": "#1b1b1d",
+                        "inverse-on-surface": "#f3f0f2",
+                        "secondary-fixed": "#d8e2ff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface": "#fcf8fa",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "primary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#009668",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-fixed-variant": "#004395",
+                        "surface-container-low": "#f6f3f5",
+                        "inverse-primary": "#bec6e0",
+                        "on-background": "#1b1b1d",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed": "#001a42",
+                        "surface-variant": "#e4e2e4",
+                        "secondary-container": "#2170e4",
+                        "inverse-surface": "#303032",
+                        "surface-dim": "#dcd9db",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "primary-container": "#131b2e",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container-high": "#eae7e9",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#dae2fd",
+                        "tertiary-container": "#002113",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#7c839b",
+                        "outline": "#76777d",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fcf8fa",
+                        "background": "#fcf8fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<header class="sticky top-0 w-full z-30 flex items-center justify-between px-6 h-16 bg-[#fcf8fa] dark:bg-slate-950 text-[#131b2e] dark:text-slate-100 backdrop-blur-md bg-opacity-80 font-['Manrope'] font-semibold text-lg">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer">menu</span>
+<span class="text-lg font-black text-[#131b2e] dark:text-white">Grant Explorer</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a senior grant evaluator in a minimalist studio setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQr7KXRLZzsxzrfmMNMvQAIQQ9J3QXWSql4zjCNrk1hQf7Y4R-zg9lEIvGh5nXDeYOFhM8TYD1pgfZu6EB0ZtG-ag93m-Laq_q_Od-KVoH_5Km6gM4kCd7fPzIQvwOYv4fKhWalQMFAZv0Qd9DrgWv6t9Ux4bhma1Vixjc2GTGgPYSfO0wCuh-FX8fVpi5ZvWs0l4oqulUjrxSis4Gx6g_BsOoT1cuKLMnnTSPsgdnBD2yhvn8nqHqcoTAoLM0I2r4GF4chnPryVw"/>
+</div>
+</div>
+</header>
+<main class="px-6 py-8">
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-primary-container font-label">Evaluation Report</span>
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold rounded-full">RMD26</span>
+</div>
+<h1 class="text-3xl font-extrabold tracking-tight text-on-primary-fixed leading-tight">Quantum Resiliency Initiative</h1>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<section class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="text-sm font-bold uppercase tracking-wider text-outline mb-1 font-label">Success Probability</h2>
+<div class="text-5xl font-extrabold text-on-surface">87<span class="text-2xl text-on-tertiary-container">%</span></div>
+</div>
+<div class="relative w-20 h-20">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<path class="stroke-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="3"></path>
+<path class="stroke-on-tertiary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="87, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-on-primary-fixed-variant w-[87%]"></div>
+</div>
+</section>
+<section class="bg-surface-container-low p-6 rounded-xl">
+<h2 class="text-sm font-bold uppercase tracking-wider text-outline mb-4 font-label">Analysis Deep Dive</h2>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-sm font-medium text-on-surface-variant">Eligibility Criteria</span>
+<span class="text-sm font-bold text-on-tertiary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Compliant
+                        </span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-sm font-medium text-on-surface-variant">Thematic Alignment</span>
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full">
+<div class="w-[92%] h-full bg-primary-container rounded-full"></div>
+</div>
+<span class="text-xs font-bold text-on-primary-fixed">9.2</span>
+</div>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-sm font-medium text-on-surface-variant">Innovation Factor</span>
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full">
+<div class="w-[78%] h-full bg-primary-container rounded-full"></div>
+</div>
+<span class="text-xs font-bold text-on-primary-fixed">7.8</span>
+</div>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-sm font-medium text-on-surface-variant">Operational Scalability</span>
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full">
+<div class="w-[85%] h-full bg-primary-container rounded-full"></div>
+</div>
+<span class="text-xs font-bold text-on-primary-fixed">8.5</span>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_40px_rgba(19,27,46,0.06)]">
+<h2 class="text-sm font-bold uppercase tracking-wider text-outline mb-4 font-label">Narrative Justification</h2>
+<p class="text-sm leading-relaxed text-on-surface-variant">
+                    The RMD26 proposal demonstrates an exceptional grasp of the sovereign tech landscape. Their architectural approach to quantum-safe encryption layers aligns perfectly with our 2024 Strategic Directive. While the budget allocation for infrastructure is aggressive, the projected impact on regional data sovereignty justifies the investment.
+                </p>
+<div class="mt-4 p-3 bg-surface rounded flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-[11px] italic text-on-primary-fixed-variant">AI-generated synthesis based on 47 prior successful grants in this sector.</p>
+</div>
+</section>
+<section class="p-6">
+<h2 class="text-sm font-bold uppercase tracking-wider text-outline mb-4 font-label">Risk &amp; Mitigation</h2>
+<div class="space-y-3">
+<div class="flex gap-4">
+<div class="w-1 h-auto bg-error-container rounded-full"></div>
+<div>
+<h3 class="text-sm font-bold text-on-surface">Hardware Supply Chain</h3>
+<p class="text-xs text-on-surface-variant">Dependence on specific silicon fabrication units in contested regions.</p>
+<p class="text-xs font-semibold text-on-tertiary-container mt-1">Mitigation: Dual-sourcing strategy active.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-1 h-auto bg-secondary-fixed rounded-full"></div>
+<div>
+<h3 class="text-sm font-bold text-on-surface">Talent Acquisition</h3>
+<p class="text-xs text-on-surface-variant">High competition for specialized cryptography PhDs.</p>
+<p class="text-xs font-semibold text-on-tertiary-container mt-1">Mitigation: Pre-existing university partnerships.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="mt-10 space-y-4">
+<button class="w-full h-14 bg-primary-container text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 text-base transition-all active:scale-95">
+<span class="material-symbols-outlined">check</span>
+                Approve Proposal (Go)
+            </button>
+<button class="w-full h-14 bg-transparent text-error border-error/20 hover:bg-error-container/10 transition-all rounded-xl font-bold flex items-center justify-center gap-2 text-base">
+<span class="material-symbols-outlined">close</span>
+                Reject Proposal (No-Go)
+            </button>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-white dark:bg-slate-900 border-t border-[#c6c6cd]/20 shadow-[0_-4px_20px_rgba(19,27,46,0.04)] font-['Inter'] text-[10px] uppercase tracking-widest font-bold">
+<div class="flex flex-col items-center justify-center text-[#3f465c] dark:text-slate-400 py-1">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#3f465c] dark:text-slate-400 py-1">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="mt-1">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#131b2e] text-white rounded-xl px-4 py-2">
+<span class="material-symbols-outlined" data-icon="rate_review" style="font-variation-settings: 'FILL' 1;">rate_review</span>
+<span class="mt-1">Evaluate</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#3f465c] dark:text-slate-400 py-1">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="mt-1">Alerts</span>
+</div>
+</nav>
+<aside class="fixed left-0 top-0 h-full z-40 w-64 bg-[#f6f3f5] dark:bg-slate-900 text-[#131b2e] dark:text-slate-100 font-['Manrope'] font-bold tracking-tight transform -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col" id="sidebar">
+<div class="p-6 flex items-center justify-between">
+<span class="text-xl font-bold text-[#131b2e] dark:text-white">Sovereign Architect</span>
+<button class="material-symbols-outlined text-[#3f465c]" id="sidebarClose">close</button>
+</div>
+<div class="px-3 space-y-1">
+<div class="flex items-center gap-4 px-4 py-3 rounded-lg text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] transition-all">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 rounded-lg text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] transition-all">
+<span class="material-symbols-outlined">search</span>
+<span>Search</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 rounded-lg bg-[#e4e2e4] dark:bg-slate-800 text-[#131b2e] dark:text-white font-semibold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rate_review</span>
+<span>Evaluation</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 rounded-lg text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] transition-all">
+<span class="material-symbols-outlined">description</span>
+<span>Proposals</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 rounded-lg text-[#3f465c] dark:text-slate-400 hover:bg-[#e4e2e4] transition-all">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span>Admin</span>
+</div>
+</div>
+</aside>
+</body></html>
