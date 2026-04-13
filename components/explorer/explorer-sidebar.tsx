@@ -1,4 +1,18 @@
-export function ExplorerSidebar() {
+import { Grant } from "@/lib/types";
+
+interface ExplorerSidebarProps {
+  grants?: Grant[];
+}
+
+export function ExplorerSidebar({ grants = [] }: ExplorerSidebarProps) {
+  const highFitGrants = grants.filter((g) => g.fitScore >= 80);
+  const criticalDeadlines = grants.filter((g) => {
+    const deadline = new Date(g.deadline);
+    const now = new Date();
+    const daysUntil = Math.ceil((deadline.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+    return daysUntil <= 30 && daysUntil > 0;
+  });
+
   return (
     <aside className="col-span-12 space-y-6 lg:col-span-4">
       {/* Scanner Intelligence Card */}
@@ -9,26 +23,25 @@ export function ExplorerSidebar() {
         <div className="space-y-4">
           <div className="flex items-end justify-between">
             <div>
-              <div className="font-headline text-3xl font-black">142</div>
+              <div className="font-headline text-3xl font-black">{grants.length}</div>
               <div className="text-[10px] font-bold uppercase tracking-widest opacity-80">
-                New Grants Analyzed
+                Grants Found
               </div>
             </div>
             <div className="text-right">
               <div className="font-headline text-xl font-bold text-tertiary-fixed">
-                +12%
+                {highFitGrants.length}
               </div>
               <div className="text-[10px] font-bold uppercase tracking-widest opacity-80">
-                Weekly Vol
+                High Fit
               </div>
             </div>
           </div>
           <div className="h-1.5 w-full overflow-hidden rounded-full bg-on-primary/10">
-            <div className="h-full w-3/4 bg-tertiary-fixed"></div>
+            <div className="h-full bg-tertiary-fixed" style={{width: `${highFitGrants.length > 0 ? (highFitGrants.length / grants.length) * 100 : 0}%`}}></div>
           </div>
           <p className="text-[11px] font-medium leading-relaxed opacity-70">
-            The AI model has flagged 3 critical opportunities matching your
-            &ldquo;High Performance Compute&rdquo; profile in the last 4 hours.
+            {criticalDeadlines.length} opportunities have deadlines approaching within 30 days.
           </p>
         </div>
       </div>
@@ -39,42 +52,34 @@ export function ExplorerSidebar() {
           Live Signals
         </h3>
         <div className="space-y-6">
-          <div className="flex gap-4">
-            <div className="mt-1.5 h-2 w-2 rounded-full bg-error shadow-[0_0_8px_rgba(186,26,26,0.4)]"></div>
-            <div>
-              <p className="text-xs font-bold text-on-surface">
-                Deadline Alert: Quantum Init
-              </p>
-              <p className="mt-1 text-[10px] text-on-surface-variant">
-                Proposal window closing in 48 hours. Eligibility confirmed.
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="mt-1.5 h-2 w-2 rounded-full bg-on-tertiary-container"></div>
-            <div>
-              <p className="text-xs font-bold text-on-surface">
-                New Funding Pool: OECD AI
-              </p>
-              <p className="mt-1 text-[10px] text-on-surface-variant">
-                Multi-year initiative for global governance frameworks.
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="mt-1.5 h-2 w-2 rounded-full bg-secondary"></div>
-            <div>
-              <p className="text-xs font-bold text-on-surface">
-                Status Update: Horizon Europe
-              </p>
-              <p className="mt-1 text-[10px] text-on-surface-variant">
-                Your preliminary score increased to 92% after new CV upload.
-              </p>
-            </div>
-          </div>
+          {criticalDeadlines.length > 0 ? (
+            criticalDeadlines.slice(0, 3).map((grant) => {
+              const deadline = new Date(grant.deadline);
+              const now = new Date();
+              const daysUntil = Math.ceil((deadline.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+              
+              return (
+                <div key={grant.id} className="flex gap-4">
+                  <div className={`mt-1.5 h-2 w-2 rounded-full ${daysUntil <= 14 ? 'bg-error shadow-[0_0_8px_rgba(186,26,26,0.4)]' : daysUntil <= 21 ? 'bg-secondary' : 'bg-on-tertiary-container'}`}></div>
+                  <div>
+                    <p className="text-xs font-bold text-on-surface">
+                      Deadline: {grant.name.substring(0, 30)}
+                    </p>
+                    <p className="mt-1 text-[10px] text-on-surface-variant">
+                      {daysUntil} days remaining. Fit score: {grant.fitScore}%
+                    </p>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <p className="text-[10px] text-on-surface-variant">
+              No critical deadlines in the next 30 days.
+            </p>
+          )}
         </div>
         <button className="mt-6 w-full rounded-lg border border-outline-variant/30 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors hover:bg-surface-container-highest">
-          View Signal History
+          View All Signals
         </button>
       </div>
 
@@ -89,28 +94,32 @@ export function ExplorerSidebar() {
               High Fits
             </p>
             <p className="font-headline text-2xl font-bold text-on-surface">
-              23
+              {highFitGrants.length}
             </p>
           </div>
           <div>
             <p className="text-[10px] font-bold uppercase text-outline">
-              Bookmarked
+              Critical
             </p>
             <p className="font-headline text-2xl font-bold text-on-surface">
-              12
+              {criticalDeadlines.length}
             </p>
           </div>
           <div>
             <p className="text-[10px] font-bold uppercase text-outline">
-              Applied
+              Average Fit
             </p>
-            <p className="font-headline text-2xl font-bold text-on-surface">8</p>
+            <p className="font-headline text-2xl font-bold text-on-surface">
+              {grants.length > 0 ? Math.round(grants.reduce((sum, g) => sum + g.fitScore, 0) / grants.length) : 0}%
+            </p>
           </div>
           <div>
             <p className="text-[10px] font-bold uppercase text-outline">
-              Pending
+              Total Funding
             </p>
-            <p className="font-headline text-2xl font-bold text-on-surface">5</p>
+            <p className="font-headline text-2xl font-bold text-on-surface">
+              {grants.length > 0 ? `${(grants.reduce((sum, g) => sum + g.fundingAmount, 0) / 1000000).toFixed(1)}M` : '0'}
+            </p>
           </div>
         </div>
       </div>

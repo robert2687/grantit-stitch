@@ -1,4 +1,19 @@
-export function HeroStats() {
+interface HeroStatsProps {
+  stats?: {
+    totalFundingAvailable: number;
+    totalGrantsUnderReview: number;
+    activeProposals: number;
+    averageFitScore: number;
+  };
+  loading?: boolean;
+}
+
+export function HeroStats({ stats, loading }: HeroStatsProps) {
+  const totalFunding = stats ? (stats.totalFundingAvailable / 1000000).toFixed(1) : '24.8';
+  const growth = '+12.4';
+  const grantCount = stats?.totalGrantsUnderReview || 142;
+  const compliance = stats ? stats.averageFitScore : 98;
+
   return (
     <section className="grid grid-cols-12 gap-8">
       {/* Main Stats Card */}
@@ -14,12 +29,11 @@ export function HeroStats() {
           </div>
           <div className="relative z-10">
             <h3 className="mb-4 font-headline text-[3.5rem] font-extrabold leading-none tracking-tight">
-              $24.8B
+              ${totalFunding}B
             </h3>
             <p className="max-w-md font-body text-lg leading-relaxed text-on-primary-container">
-              Total managed orchestrations across RMD26 ecosystem. Current
-              throughput performing at{" "}
-              <span className="font-bold text-tertiary-fixed">+12.4%</span>{" "}
+              Total funding managed across {grantCount} grants. Current portfolio performing at{" "}
+              <span className="font-bold text-tertiary-fixed">{growth}%</span>{" "}
               above annual benchmark.
             </p>
           </div>
@@ -42,10 +56,10 @@ export function HeroStats() {
               analytics
             </span>
             <p className="text-[10px] font-bold uppercase tracking-widest text-outline">
-              Active Requests
+              Grants Under Review
             </p>
             <h4 className="font-headline text-3xl font-bold text-on-surface">
-              1,284
+              {loading ? '...' : grantCount}
             </h4>
           </div>
           <div className="border-t border-outline-variant/10 pt-4">
@@ -53,7 +67,7 @@ export function HeroStats() {
               <span className="material-symbols-outlined text-sm">
                 trending_up
               </span>
-              42 NEW IN LAST 24H
+              {stats?.activeProposals || 0} ACTIVE PROPOSALS
             </p>
           </div>
         </div>
@@ -63,10 +77,10 @@ export function HeroStats() {
               history_edu
             </span>
             <p className="text-[10px] font-bold uppercase tracking-widest text-outline">
-              Grant Compliance
+              Avg Fit Score
             </p>
             <h4 className="font-headline text-3xl font-bold text-on-surface">
-              98.2%
+              {loading ? '...' : compliance}%
             </h4>
           </div>
           <div className="border-t border-outline-variant/10 pt-4">
