@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { mockGrants } from '@/lib/mock-data';
-import { GrantEvaluation, EvaluationResponse } from '@/lib/types';
+import { mockGrants } from '@/lib/api/mock-data';
+import { GrantEvaluation, EvaluationResponse } from '@/lib/api/types';
 
 /**
  * POST /api/grants/evaluate

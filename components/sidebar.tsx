@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/index";
 import Image from "next/image";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: "dashboard" },
+  { name: "Dashboard", href: "/dashboard", icon: "dashboard" },
   { name: "Search", href: "/explorer", icon: "search" },
   { name: "Evaluation", href: "/compliance", icon: "rate_review" },
   { name: "Proposals", href: "/proposals", icon: "description" },

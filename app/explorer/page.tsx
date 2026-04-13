@@ -6,7 +6,7 @@ import { GrantFilters } from "@/components/explorer/grant-filters";
 import { GrantStream } from "@/components/explorer/grant-stream";
 import { ExplorerSidebar } from "@/components/explorer/explorer-sidebar";
 import { useState, useEffect } from 'react';
-import { Grant, GrantScanResponse } from '@/lib/types';
+import { Grant, GrantScanResponse } from '@/lib/api/types';
 
 export default function ExplorerPage() {
   const [grants, setGrants] = useState<Grant[]>([]);

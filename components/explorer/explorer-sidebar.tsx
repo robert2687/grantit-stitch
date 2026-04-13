@@ -1,4 +1,4 @@
-import { Grant } from "@/lib/types";
+import { Grant } from "@/lib/api/types";
 
 interface ExplorerSidebarProps {
   grants?: Grant[];

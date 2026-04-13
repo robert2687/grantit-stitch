@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { mockGrants, mockDeadlines, mockWatchlist, mockAlerts } from '@/lib/mock-data';
-import { GrantScanResponse } from '@/lib/types';
+import { mockGrants, mockDeadlines, mockWatchlist, mockAlerts } from '@/lib/api/mock-data';
+import { GrantScanResponse } from '@/lib/api/types';
 
 /**
  * GET /api/grants/search

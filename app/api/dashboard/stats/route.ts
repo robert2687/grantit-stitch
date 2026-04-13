@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { mockGrants, mockDeadlines } from '@/lib/mock-data';
+import { mockGrants, mockDeadlines } from '@/lib/api/mock-data';
 
 /**
  * GET /api/dashboard/stats

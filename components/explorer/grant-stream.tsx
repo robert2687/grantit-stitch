@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import { Grant } from "@/lib/types";
+import { cn } from "@/lib/utils/index";
+import { Grant } from "@/lib/api/types";
 
 interface GrantStreamProps {
   grants: Grant[];
